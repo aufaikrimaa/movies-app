@@ -8,14 +8,14 @@
 </template>
 
 <script setup lang="ts">
-import tmdbApi from "~/composables/useTmdbApi";
+import tmdbApi from "@/services/tmdbApi";
 
 const movies = ref<any>(null);
 
 const fetchMovies = async () => {
   const data = await tmdbApi.getMoviesList("popular");
   movies.value = data.results;
-  //   console.log(data.results);
+  // console.log(data.results);
 };
 
 fetchMovies();
