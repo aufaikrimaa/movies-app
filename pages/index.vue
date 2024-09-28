@@ -15,8 +15,16 @@ import tmdbApi from "@/services/tmdbApi";
 const movies = ref<any>(null);
 
 const fetchMovies = async () => {
-  const data = await tmdbApi.getMoviesList("popular");
-  movies.value = data.results;
+  try {
+    const response = await tmdbApi.getMoviesList("popular");
+    if (response && response.results) {
+      movies.value = response.results;
+    } else {
+      console.log("Loading...");
+    }
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+  }
   // const data = await tmdbApi.person(137905)
   // movies.value = data;
   // const data = await tmdbApi.person(137905, "movie_credits");
