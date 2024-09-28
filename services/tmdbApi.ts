@@ -15,12 +15,14 @@ export const movieType = {
   upcoming: "upcoming",
   popular: "popular",
   top_rated: "top_rated",
+  now_playing: "now_playing",
 } as const;
 
 export const tvType = {
   popular: "popular",
   top_rated: "top_rated",
   on_the_air: "on_the_air",
+  airing_today: "airing_today",
 } as const;
 
 const useTmdbApi = (endpoint: string, params: Record<string, any> = {}) => {
@@ -69,6 +71,10 @@ const tmdbApi = {
   },
   similar: (cate: keyof typeof category, id: number) => {
     return useTmdbApi(`${category[cate]}/${id}/similar`);
+  },
+  person: (id: number, endpoint?: string) => {
+    const path = endpoint ? `person/${id}/${endpoint}` : `person/${id}`;
+    return useTmdbApi(path);
   },
 };
 
