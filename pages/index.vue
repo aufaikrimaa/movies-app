@@ -2,7 +2,7 @@
   <div v-if="!movies">Loading...</div>
   <div v-else>
     <div v-for="movie in movies" :key="movie.id">
-      <div>{{ movie.title }}</div>
+      <div class="text-2xl text-purple-500">{{ movie.title }}</div>
     </div>
 
     <!-- <div>{{ movies.biography }}</div> -->
