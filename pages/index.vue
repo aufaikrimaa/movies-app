@@ -12,18 +12,33 @@
 <script setup lang="ts">
 import tmdbApi from "@/services/tmdbApi";
 
-const movies = ref<any>(null);
+// Definisikan tipe data untuk respons API
+interface Movie {
+  id: number;
+  title: string;
+}
+
+interface TMDBResponse {
+  results: Movie[];
+}
+
+const movies = ref<Movie[]>([]);
+const loading = ref<boolean>(true);
+const error = ref<string | null>(null);
 
 const fetchMovies = async () => {
   try {
-    const response = await tmdbApi.getMoviesList("popular");
+    const response = (await tmdbApi.getMoviesList("popular")) as TMDBResponse;
     if (response && response.results) {
       movies.value = response.results;
     } else {
-      console.log("Loading...");
+      error.value = "No movies found.";
     }
-  } catch (error) {
-    console.error("Error fetching movies:", error);
+  } catch (err) {
+    error.value = "Error fetching movies.";
+    console.error("Error fetching movies:", err);
+  } finally {
+    loading.value = false;
   }
   // const data = await tmdbApi.person(137905)
   // movies.value = data;
