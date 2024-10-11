@@ -1,5 +1,8 @@
 <template>
-  <div><Hero /></div>
+  <div>
+    <Hero />
+    <MoviesListMovies />
+  </div>
 </template>
 
 <script setup lang="ts"></script>

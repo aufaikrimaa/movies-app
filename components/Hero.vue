@@ -23,24 +23,24 @@
     >
       <SwiperSlide v-for="movie in movies" :key="movie.id">
         <div
-          class="h-4/5 lg:h-screen bg-no-repeat bg-cover bg-center grid content-end py-20"
+          class="h-[20rem] sm:h-[24rem] md:h-[32rem] lg:h-screen bg-no-repeat bg-cover bg-center grid content-end py-4 lg:py-20"
           :style="`background-image: linear-gradient(to top, #0f0f0f, rgba(0, 0, 0, 0)), url(${apiConfig.oriImg(
             movie.backdrop_path
           )})`"
         >
           <div class="container text-white">
             <div
-              class="bg-gray-300/20 py-2 px-3 w-fit rounded-full text-xs mb-6"
+              class="bg-gray-300/20 py-1 px-2 lg:py-2 lg:px-3 w-fit rounded-full text-[0.5rem] lg:text-xs mb-4 lg:mb-6"
             >
               Trending Movie
             </div>
-            <div class="w-11/12 md:w-4/5 lg:w-2/3">
-              <h1 class="text-3xl lg:text-6xl font-bold mb-6">
+            <div class="w-11/12 md:w-4/5 lg:w-2/3 mb-5 lg:mb-7">
+              <h1 class="text-3xl lg:text-6xl font-bold mb-3 lg:mb-6">
                 {{ movie.title }}
               </h1>
               <h3 class="text-xs lg:text-base">{{ movie.overview }}</h3>
             </div>
-            <div class="flex gap-4 mt-6">
+            <div class="flex gap-4">
               <Button width="w-2/5" class="flex gap-2">
                 <Icon
                   name="uil:play"
