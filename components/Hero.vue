@@ -23,7 +23,7 @@
     >
       <SwiperSlide v-for="movie in movies" :key="movie.id">
         <div
-          class="h-screen bg-no-repeat bg-cover bg-center grid content-end py-20"
+          class="h-4/5 lg:h-screen bg-no-repeat bg-cover bg-center grid content-end py-20"
           :style="`background-image: linear-gradient(to top, #0f0f0f, rgba(0, 0, 0, 0)), url(${apiConfig.oriImg(
             movie.backdrop_path
           )})`"
@@ -34,14 +34,14 @@
             >
               Trending Movie
             </div>
-            <div class="w-2/3">
-              <h1 class="text-6xl font-bold mb-6">
+            <div class="w-11/12 md:w-4/5 lg:w-2/3">
+              <h1 class="text-3xl lg:text-6xl font-bold mb-6">
                 {{ movie.title }}
               </h1>
-              <h3>{{ movie.overview }}</h3>
+              <h3 class="text-xs lg:text-base">{{ movie.overview }}</h3>
             </div>
             <div class="flex gap-4 mt-6">
-              <Button width="w-48" class="flex gap-2">
+              <Button width="w-2/5" class="flex gap-2">
                 <Icon
                   name="uil:play"
                   style="color: white"
@@ -49,7 +49,7 @@
                 />
                 <span class="self-center">Watch Trailer</span>
               </Button>
-              <ButtonOutline width="w-48">More Info </ButtonOutline>
+              <ButtonOutline width="w-2/5">More Info </ButtonOutline>
             </div>
           </div>
         </div>
