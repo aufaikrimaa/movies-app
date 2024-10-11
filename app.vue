@@ -6,8 +6,35 @@
 </template>
 
 <style>
-.container {
-  max-width: 1490px;
-  margin: auto;
+@media (min-width: 300px) {
+  .container {
+    margin: 0 8px;
+  }
+}
+@media (min-width: 640px) {
+  .container {
+    margin: 0 20px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    margin: 0 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin: 0 36px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    margin: 0 40px;
+  }
+}
+@media (min-width: 1536px) {
+  .container {
+    margin: 0 40px;
+  }
 }
 </style>
