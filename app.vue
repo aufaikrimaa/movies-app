@@ -6,6 +6,9 @@
 </template>
 
 <style>
+body {
+  overflow-x: hidden;
+}
 @media (min-width: 300px) {
   .container {
     margin: 0 8px;
