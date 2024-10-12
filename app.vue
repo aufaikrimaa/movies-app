@@ -24,17 +24,17 @@
 
 @media (min-width: 1024px) {
   .container {
-    margin: 0 36px;
+    margin: 0 36px 0 120px;
   }
 }
 @media (min-width: 1280px) {
   .container {
-    margin: 0 40px;
+    margin: 0 40px 0 120px;
   }
 }
 @media (min-width: 1536px) {
   .container {
-    margin: 0 40px;
+    margin: 0 40px 0 120px;
   }
 }
 </style>
