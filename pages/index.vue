@@ -3,7 +3,6 @@
     <Navbar />
     <Hero />
     <MoviesListMovies />
+    <AppFooter />
   </div>
 </template>
-
-<script setup lang="ts"></script>
