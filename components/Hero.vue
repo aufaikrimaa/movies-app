@@ -1,6 +1,10 @@
 <template>
   <div class="">
-    <!-- <div class="container">Hero</div> -->
+    <div
+      class="container absolute flex lg:justify-end z-20 text-white text-md sm:text-xl lg:text-3xl lg:right-0 top-2 sm:top-4 md:top-8 font-bold gap-1 md:gap-2"
+    >
+      <img src="/popcorn.svg" class="w-4 sm:w-6 lg:w-10 h-auto" /> awaMovies
+    </div>
     <Swiper
       :modules="[SwiperAutoplay, SwiperEffectCreative]"
       :slides-per-view="1"
