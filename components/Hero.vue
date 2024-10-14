@@ -27,7 +27,7 @@
     >
       <SwiperSlide v-for="movie in movies" :key="movie.id">
         <div
-          class="h-[20rem] sm:h-[24rem] md:h-[32rem] lg:h-[44rem] bg-no-repeat bg-cover bg-center grid content-end justify-items-end py-4 lg:py-20"
+          class="h-[20rem] sm:h-[24rem] md:h-[32rem] xl:h-[40rem] 2xl:h-[48rem] bg-no-repeat bg-cover bg-center grid content-end justify-items-end py-4 lg:py-20"
           :style="`background-image: linear-gradient(to top, #0f0f0f, rgba(0, 0, 0, 0)), url(${apiConfig.oriImg(
             movie.backdrop_path
           )})`"
