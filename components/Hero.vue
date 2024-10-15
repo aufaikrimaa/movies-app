@@ -45,7 +45,7 @@
               <h3 class="text-xs lg:text-base">{{ movie.overview }}</h3>
             </div>
             <div class="flex gap-4">
-              <Button width="w-2/5" class="flex gap-2">
+              <Button width="w-40 sm:w-48" class="flex gap-2">
                 <Icon
                   name="uil:play"
                   style="color: white"
@@ -53,7 +53,7 @@
                 />
                 <span class="self-center">Watch Trailer</span>
               </Button>
-              <ButtonOutline width="w-2/5">More Info </ButtonOutline>
+              <ButtonOutline width="w-40 sm:w-48">More Info </ButtonOutline>
             </div>
           </div>
         </div>
