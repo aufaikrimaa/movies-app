@@ -1,9 +1,18 @@
 <template>
-  <div class="bg-[#0f0f0f]">
+  <div class="bg-[#0f0f0f] pt-6 sm:pt-8 lg:pt-16">
     <div class="container">
-      <div class="flex justify-between">
-        <div class="text-white">{{ title }}</div>
-        <ButtonOutline>explore more</ButtonOutline>
+      <div class="flex justify-between mb-4 lg:mb-6">
+        <div
+          class="text-white sm:text-lg md:text-xl lg:text-3xl font-bold self-center"
+        >
+          {{ title }}
+        </div>
+        <ButtonOutline width="w-32 lg:w-44" class="flex justify-center">
+          <span class="text-xs sm:text-sm md:text-md lg:text-lg"
+            >explore more</span
+          >
+          <Icon name="uil:arrow-right" class="self-center text-lg lg:text-xl"
+        /></ButtonOutline>
       </div>
       <client-only>
         <Swiper :space-between="10" :slides-per-view="'auto'">

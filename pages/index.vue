@@ -22,7 +22,12 @@
       type="top_rated"
       title="Top Rated Tv Shows"
     />
-    <MoviesMovieSlides category="tv" type="popular" title="Popular Tv Shows" />
+    <MoviesMovieSlides
+      category="tv"
+      type="popular"
+      title="Popular Tv Shows"
+      class="pb-6 sm:pb-8 lg:pb-16"
+    />
     <AppFooter />
   </div>
 </template>
