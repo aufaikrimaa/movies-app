@@ -13,7 +13,9 @@
         </Button>
       </div>
     </div>
-    <h3 class="text-center mt-1 font-semibold text-lg">
+    <h3
+      class="text-center mt-1 font-semibold text-[0.6rem] sm:text-xs md:text-sm lg:text-lg"
+    >
       {{ item.title || item.name }}
     </h3>
   </NuxtLink>
