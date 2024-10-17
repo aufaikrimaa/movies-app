@@ -1,29 +1,30 @@
 <template>
-  <div class="container">
-    <div class="flex justify-between">
-      <div>1</div>
-      <div>2</div>
+  <div class="bg-[#0f0f0f]">
+    <div class="container">
+      <div class="flex justify-between">
+        <div class="text-white">{{ title }}</div>
+        <ButtonOutline>explore more</ButtonOutline>
+      </div>
+      <client-only>
+        <Swiper :space-between="10" :slides-per-view="'auto'">
+          <SwiperSlide v-for="(item, index) in movies" :key="index">
+            <MovieCard :item="item" :category="category" />
+          </SwiperSlide>
+        </Swiper>
+      </client-only>
     </div>
-    <client-only>
-      <Swiper :space-between="10" :slides-per-view="'auto'">
-        <SwiperSlide v-for="(item, index) in movies" :key="index">
-          <MovieCard :item="item" :category="category" />
-        </SwiperSlide>
-      </Swiper>
-    </client-only>
   </div>
 </template>
 
 <script setup>
 import MovieCard from "./MovieCard.vue";
+import tmdbApi from "@/services/tmdbApi";
 
 const props = defineProps({
   category: String,
   type: String,
+  title: String,
 });
-
-import { apiConfig } from "@/services/tmdbApi";
-import tmdbApi from "@/services/tmdbApi";
 
 const movies = ref([]);
 const loading = ref(true);
