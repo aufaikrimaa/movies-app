@@ -19,6 +19,7 @@ import MovieCard from "./MovieCard.vue";
 
 const props = defineProps({
   category: String,
+  type: String,
 });
 
 import { apiConfig } from "@/services/tmdbApi";
@@ -30,7 +31,13 @@ const error = ref(null);
 
 const fetchMovies = async () => {
   try {
-    const response = await tmdbApi.getMoviesList("popular");
+    let response;
+    if (props.category === "movie") {
+      response = await tmdbApi.getMoviesList(props.type);
+    } else if (props.category === "tv") {
+      response = await tmdbApi.getTvList(props.type);
+    }
+
     if (response && response.results) {
       movies.value = response.results;
     } else {
@@ -42,10 +49,6 @@ const fetchMovies = async () => {
   } finally {
     loading.value = false;
   }
-  // const data = await tmdbApi.person(137905)
-  // movies.value = data;
-  // const data = await tmdbApi.person(137905, "movie_credits");
-  // console.log(data.cast);
 };
 
 fetchMovies();
