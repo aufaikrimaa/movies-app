@@ -12,6 +12,8 @@ body {
 @media (min-width: 300px) {
   .container {
     margin: 0 8px;
+    max-width: max-content !important;
+    width: auto;
   }
 }
 @media (min-width: 640px) {
@@ -27,17 +29,13 @@ body {
 
 @media (min-width: 1024px) {
   .container {
-    margin: 0 36px 0 120px;
+    margin: 0 36px;
+    width: auto;
   }
 }
 @media (min-width: 1280px) {
   .container {
-    margin: 0 40px 0 120px;
-  }
-}
-@media (min-width: 1536px) {
-  .container {
-    margin: 0 40px 0 120px;
+    margin: 0 40px;
   }
 }
 </style>
