@@ -3,7 +3,8 @@
     <div class="container">
       <div class="flex justify-between mb-4 lg:mb-6">
         <div
-          class="text-white sm:text-lg md:text-xl lg:text-3xl font-bold self-center"
+          class="text-white sm:text-lg md:text-xl lg:text-2xl font-semibold self-center rounded-full"
+          :style="`background-image: linear-gradient(to right, #ef4444, rgba(0, 0, 0, 0))`"
         >
           {{ title }}
         </div>

@@ -20,12 +20,12 @@
     <MoviesMovieSlides
       category="tv"
       type="top_rated"
-      title="Top Rated Tv Shows"
+      title="Top Rated TV Shows"
     />
     <MoviesMovieSlides
       category="tv"
       type="popular"
-      title="Popular Tv Shows"
+      title="Popular TV Shows"
       class="pb-6 sm:pb-8 lg:pb-16"
     />
     <AppFooter />
