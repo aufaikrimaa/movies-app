@@ -59,6 +59,4 @@ const fetchOneMovie = async () => {
 };
 
 fetchOneMovie();
-
-console.log(movies);
 </script>
