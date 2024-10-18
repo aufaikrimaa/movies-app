@@ -17,7 +17,7 @@
       <Icon
         name="uil:search"
         style="color: white"
-        class="absolute top-1/2 right-1 sm:right-2 transform -translate-y-1/2 h-3 sm:h-4 md:h-5 lg:h-7 pointer-events-none"
+        class="absolute top-1/2 right-1 sm:right-2 transform -translate-y-1/2 h-2 sm:h-3 md:h-4 lg:h-6 pointer-events-none"
       />
     </div>
     <client-only>
