@@ -25,19 +25,31 @@
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
           <nuxt-link to="/" class="relative z-10">Home</nuxt-link>
           <div
-            class="absolute inset-0 bg-gray-300/20 scale-0 transition-transform duration-300 ease-in-out group-hover:scale-100 rounded-full"
+            class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
+            :class="{
+              'scale-100': $route.path === '/',
+              'scale-0 group-hover:scale-100': $route.path !== '/',
+            }"
           ></div>
         </div>
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
           <nuxt-link to="/movie" class="relative z-10">Movies</nuxt-link>
           <div
-            class="absolute inset-0 bg-gray-300/20 scale-0 transition-transform duration-300 ease-in-out group-hover:scale-100 rounded-full"
+            class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
+            :class="{
+              'scale-100': $route.path === '/movie',
+              'scale-0 group-hover:scale-100': $route.path !== '/movie',
+            }"
           ></div>
         </div>
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
           <nuxt-link to="/tv" class="relative z-10">TV Shows</nuxt-link>
           <div
-            class="absolute inset-0 bg-gray-300/20 scale-0 transition-transform duration-300 ease-in-out group-hover:scale-100 rounded-full"
+            class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
+            :class="{
+              'scale-100': $route.path === '/tv',
+              'scale-0 group-hover:scale-100': $route.path !== '/tv',
+            }"
           ></div>
         </div>
       </div>
@@ -53,7 +65,11 @@
           <nuxt-link to="/" class="flex items-center justify-center">
             <Icon
               name="mdi:home"
-              class="text-white text-2xl sm:text-3xl md:text-4xl"
+              class="text-2xl sm:text-3xl md:text-4xl"
+              :class="{
+                'text-red-500': $route.path === '/',
+                'text-white': $route.path !== '/',
+              }"
             />
           </nuxt-link>
         </div>
@@ -61,7 +77,11 @@
           <nuxt-link to="/movie" class="flex items-center justify-center">
             <Icon
               name="mdi:movie-play"
-              class="text-white text-2xl sm:text-3xl md:text-4xl"
+              class="text-2xl sm:text-3xl md:text-4xl"
+              :class="{
+                'text-red-500': $route.path === '/movie',
+                'text-white': $route.path !== '/movie',
+              }"
             />
           </nuxt-link>
         </div>
@@ -69,7 +89,11 @@
           <nuxt-link to="/tv" class="flex items-center justify-center">
             <Icon
               name="mdi:tv-classic"
-              class="text-white text-2xl sm:text-3xl md:text-4xl"
+              class="text-2xl sm:text-3xl md:text-4xl"
+              :class="{
+                'text-red-500': $route.path === '/tv',
+                'text-white': $route.path !== '/tv',
+              }"
             />
           </nuxt-link>
         </div>
@@ -77,7 +101,11 @@
           <nuxt-link to="/" class="flex items-center justify-center">
             <Icon
               name="mdi:search"
-              class="text-white text-2xl sm:text-3xl md:text-4xl"
+              class="text-2xl sm:text-3xl md:text-4xl"
+              :class="{
+                'text-red-500': $route.path === '/search',
+                'text-white': $route.path !== '/search',
+              }"
             />
           </nuxt-link>
         </div>
@@ -87,3 +115,9 @@
 </template>
 
 <script setup></script>
+
+<style scoped>
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+</style>
