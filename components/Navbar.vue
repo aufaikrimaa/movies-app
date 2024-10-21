@@ -9,7 +9,7 @@
           ></div>
         </div>
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
-          <nuxt-link to="/" class="relative z-10">Movies</nuxt-link>
+          <nuxt-link to="/movie" class="relative z-10">Movies</nuxt-link>
           <div
             class="absolute inset-0 bg-gray-300/20 scale-0 transition-transform duration-300 ease-in-out group-hover:scale-100 rounded-full"
           ></div>
