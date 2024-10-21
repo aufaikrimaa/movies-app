@@ -1,24 +1,5 @@
 <template>
   <div class="cursor-grab active:cursor-grabbing">
-    <div
-      class="container absolute flex justify-end right-0 lg:justify-center z-20 text-white lg:left-1/2 lg:right-1/2 top-2 sm:top-4 md:top-8"
-    >
-      <Logo />
-    </div>
-    <div
-      class="container absolute flex justify-end z-20 text-white hidden lg:block text-3xl right-0 top-7 gap-2"
-    >
-      <input
-        type="text"
-        placeholder="Type something..."
-        class="bg-transparent h-8 self-center px-3 py-1 text-xs rounded-full w-9/10 w-[20rem] border border-white focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-50"
-      />
-      <Icon
-        name="uil:search"
-        style="color: white"
-        class="absolute top-6 right-2 transform -translate-y-1/2 h-6 pointer-events-none"
-      />
-    </div>
     <client-only>
       <Swiper
         :modules="[SwiperAutoplay, SwiperEffectCreative]"
