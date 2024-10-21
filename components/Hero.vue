@@ -1,10 +1,9 @@
 <template>
   <div class="cursor-grab active:cursor-grabbing">
     <div
-      class="container absolute flex justify-end right-0 lg:justify-center z-20 text-white text-md sm:text-xl lg:text-3xl lg:left-1/2 lg:right-1/2 top-2 sm:top-4 md:top-8 font-bold gap-1 md:gap-2"
+      class="container absolute flex justify-end right-0 lg:justify-center z-20 text-white lg:left-1/2 lg:right-1/2 top-2 sm:top-4 md:top-8"
     >
-      <img src="/popcorn.svg" class="popcorn w-4 sm:w-6 lg:w-10 h-auto" />
-      awaMovies
+      <Logo />
     </div>
     <div
       class="container absolute flex justify-end z-20 text-white hidden lg:block text-3xl right-0 top-7 gap-2"

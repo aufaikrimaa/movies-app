@@ -9,11 +9,8 @@
         )})`"
       ></div>
       <div class="absolute text-white container grid gap-y-4 py-8">
-        <div
-          class="text-md sm:text-xl lg:text-3xl flex font-bold gap-1 md:gap-2 mb-4"
-        >
-          <img src="/popcorn.svg" class="w-4 sm:w-6 lg:w-10 h-auto" />
-          awaMovies
+        <div class="mb-4">
+          <Logo />
         </div>
         <div class="flex gap-2 text-[0.6rem] lg:text-sm">
           Made with
