@@ -1,23 +1,23 @@
 <template>
   <div class="cursor-grab active:cursor-grabbing">
     <div
-      class="container absolute flex lg:justify-center z-20 text-white text-md sm:text-xl lg:text-3xl lg:left-1/2 lg:right-1/2 top-2 sm:top-4 md:top-8 font-bold gap-1 md:gap-2"
+      class="container absolute flex justify-end right-0 lg:justify-center z-20 text-white text-md sm:text-xl lg:text-3xl lg:left-1/2 lg:right-1/2 top-2 sm:top-4 md:top-8 font-bold gap-1 md:gap-2"
     >
       <img src="/popcorn.svg" class="popcorn w-4 sm:w-6 lg:w-10 h-auto" />
       awaMovies
     </div>
     <div
-      class="container absolute flex justify-end z-20 text-white text-md sm:text-xl lg:text-3xl right-0 top-3 sm:top-5 md:top-10 lg:top-9 gap-1 md:gap-2"
+      class="container absolute flex justify-end z-20 text-white hidden lg:block text-3xl right-0 top-7 gap-2"
     >
       <input
         type="text"
         placeholder="Type something..."
-        class="bg-transparent h-4 sm:h-5 md:h-6 lg:h-8 self-center px-3 py-1 sm:py-0.5 xs:py-0.5 text-[0.6rem] sm:text-[0.7rem] lg:text-xs rounded-full w-9/10 sm:w-[16rem] md:w-[20rem] border border-white focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-50"
+        class="bg-transparent h-8 self-center px-3 py-1 text-xs rounded-full w-9/10 w-[20rem] border border-white focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-50"
       />
       <Icon
         name="uil:search"
         style="color: white"
-        class="absolute top-1/2 right-1 sm:right-2 transform -translate-y-1/2 h-2 sm:h-3 md:h-4 lg:h-6 pointer-events-none"
+        class="absolute top-6 right-2 transform -translate-y-1/2 h-6 pointer-events-none"
       />
     </div>
     <client-only>

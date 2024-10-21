@@ -11,9 +11,6 @@
         <div>
           <nuxt-link to="/">TV Shows</nuxt-link>
         </div>
-        <div>
-          <nuxt-link to="/">Favorites</nuxt-link>
-        </div>
       </div>
     </nav>
     <nav
@@ -49,7 +46,7 @@
         <div class="flex items-center">
           <nuxt-link to="/" class="flex items-center justify-center">
             <Icon
-              name="mdi:favorite"
+              name="mdi:search"
               class="text-white text-2xl sm:text-3xl md:text-4xl"
             />
           </nuxt-link>
