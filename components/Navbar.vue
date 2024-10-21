@@ -1,15 +1,24 @@
 <template>
   <div>
-    <nav class="hidden lg:block absolute container z-20 top-9">
-      <div class="text-white text-2xl flex gap-6 font-bold">
-        <div>
-          <nuxt-link to="/">Home</nuxt-link>
+    <nav class="hidden lg:block absolute container z-20 top-8">
+      <div class="text-white text-2xl flex gap-2 font-bold">
+        <div class="relative py-1 px-6 rounded-full overflow-hidden group">
+          <nuxt-link to="/" class="relative z-10">Home</nuxt-link>
+          <div
+            class="absolute inset-0 bg-gray-300/20 scale-0 transition-transform duration-300 ease-in-out group-hover:scale-100 rounded-full"
+          ></div>
         </div>
-        <div>
-          <nuxt-link to="/">Movies</nuxt-link>
+        <div class="relative py-1 px-6 rounded-full overflow-hidden group">
+          <nuxt-link to="/" class="relative z-10">Movies</nuxt-link>
+          <div
+            class="absolute inset-0 bg-gray-300/20 scale-0 transition-transform duration-300 ease-in-out group-hover:scale-100 rounded-full"
+          ></div>
         </div>
-        <div>
-          <nuxt-link to="/">TV Shows</nuxt-link>
+        <div class="relative py-1 px-6 rounded-full overflow-hidden group">
+          <nuxt-link to="/" class="relative z-10">TV Shows</nuxt-link>
+          <div
+            class="absolute inset-0 bg-gray-300/20 scale-0 transition-transform duration-300 ease-in-out group-hover:scale-100 rounded-full"
+          ></div>
         </div>
       </div>
     </nav>
