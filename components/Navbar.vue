@@ -35,7 +35,7 @@
           ></div>
         </div>
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
-          <nuxt-link to="/" class="relative z-10">TV Shows</nuxt-link>
+          <nuxt-link to="/tv" class="relative z-10">TV Shows</nuxt-link>
           <div
             class="absolute inset-0 bg-gray-300/20 scale-0 transition-transform duration-300 ease-in-out group-hover:scale-100 rounded-full"
           ></div>
@@ -58,7 +58,7 @@
           </nuxt-link>
         </div>
         <div class="flex items-center">
-          <nuxt-link to="/" class="flex items-center justify-center">
+          <nuxt-link to="/movie" class="flex items-center justify-center">
             <Icon
               name="mdi:movie-play"
               class="text-white text-2xl sm:text-3xl md:text-4xl"
@@ -66,7 +66,7 @@
           </nuxt-link>
         </div>
         <div class="flex items-center">
-          <nuxt-link to="/" class="flex items-center justify-center">
+          <nuxt-link to="/tv" class="flex items-center justify-center">
             <Icon
               name="mdi:tv-classic"
               class="text-white text-2xl sm:text-3xl md:text-4xl"
