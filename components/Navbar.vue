@@ -67,8 +67,8 @@
               name="mdi:home"
               class="text-2xl sm:text-3xl md:text-4xl"
               :class="{
-                'text-red-500': $route.path === '/',
-                'text-white': $route.path !== '/',
+                'text-white': $route.path === '/',
+                'text-white/60': $route.path !== '/',
               }"
             />
           </nuxt-link>
@@ -79,8 +79,8 @@
               name="mdi:movie-play"
               class="text-2xl sm:text-3xl md:text-4xl"
               :class="{
-                'text-red-500': $route.path === '/movie',
-                'text-white': $route.path !== '/movie',
+                'text-white': $route.path === '/movie',
+                'text-white/60': $route.path !== '/movie',
               }"
             />
           </nuxt-link>
@@ -91,8 +91,8 @@
               name="mdi:tv-classic"
               class="text-2xl sm:text-3xl md:text-4xl"
               :class="{
-                'text-red-500': $route.path === '/tv',
-                'text-white': $route.path !== '/tv',
+                'text-white': $route.path === '/tv',
+                'text-white/60': $route.path !== '/tv',
               }"
             />
           </nuxt-link>
@@ -103,8 +103,8 @@
               name="mdi:search"
               class="text-2xl sm:text-3xl md:text-4xl"
               :class="{
-                'text-red-500': $route.path === '/search',
-                'text-white': $route.path !== '/search',
+                'text-white': $route.path === '/search',
+                'text-white/60': $route.path !== '/search',
               }"
             />
           </nuxt-link>
