@@ -25,22 +25,24 @@ export const tvType = {
   airing_today: "airing_today",
 } as const;
 
-const useTmdbApi = (endpoint: string, params: Record<string, any> = {}) => {
+const useTmdbApi = async (
+  endpoint: string,
+  params: Record<string, any> = {}
+) => {
   const config = useRuntimeConfig();
 
-  const { data, error } = useFetch(`${apiConfig.baseUrl}${endpoint}`, {
-    params: {
-      ...params,
-      api_key: config.public.tmdbApiKey,
-    },
-  });
-
-  if (error.value) {
-    console.error("Error fetching data:", error.value);
+  try {
+    const data = await $fetch(`${apiConfig.baseUrl}${endpoint}`, {
+      params: {
+        ...params,
+        api_key: config.public.tmdbApiKey,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
     return null;
   }
-
-  return data.value;
 };
 
 const tmdbApi = {
