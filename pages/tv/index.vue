@@ -2,7 +2,7 @@
   <div class="bg-[#0f0f0f]">
     <Navbar />
     <div class="flex lg:justify-end pt-28 pb-8">
-      <div class="container flex space-x-1 sm:space-x-4">
+      <div class="base flex space-x-1 sm:space-x-4">
         <ButtonOutline
           width="w-24 sm:w-32 md:w-40"
           @click="changeType('popular')"

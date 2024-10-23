@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#0f0f0f] pt-6 sm:pt-8 lg:pt-16">
-    <div class="container">
+    <div class="base">
       <div class="flex justify-between mb-4 lg:mb-6">
         <div
           class="text-white sm:text-lg md:text-xl lg:text-2xl font-semibold self-center rounded-full"

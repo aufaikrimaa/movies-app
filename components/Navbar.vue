@@ -1,12 +1,12 @@
 <template>
   <div>
     <div
-      class="container absolute flex justify-end right-0 lg:justify-center z-20 text-white lg:left-1/2 lg:right-1/2 top-2 sm:top-4 md:top-8"
+      class="base absolute flex justify-end right-0 lg:justify-center z-20 text-white lg:left-1/2 lg:right-1/2 top-2 sm:top-4 md:top-8"
     >
       <nuxt-link to="/"> <Logo /></nuxt-link>
     </div>
     <div
-      class="container absolute flex justify-end z-20 text-white hidden lg:block text-3xl right-0 top-7 gap-2"
+      class="base absolute flex justify-end z-20 text-white hidden lg:block text-3xl right-0 top-7 gap-2"
     >
       <input
         type="text"
@@ -20,7 +20,7 @@
       />
     </div>
 
-    <nav class="hidden lg:block absolute container z-20 top-8">
+    <nav class="hidden lg:block absolute base z-20 top-8">
       <div class="text-white text-2xl flex gap-2 font-bold">
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
           <nuxt-link to="/" class="relative z-10">Home</nuxt-link>

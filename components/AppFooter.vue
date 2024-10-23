@@ -8,7 +8,7 @@
           movies?.backdrop_path || ''
         )})`"
       ></div>
-      <div class="absolute text-white container grid gap-y-4 py-8">
+      <div class="absolute text-white base grid gap-y-4 py-8">
         <div class="mb-4">
           <Logo />
         </div>

@@ -28,7 +28,7 @@
               movie.backdrop_path
             )})`"
           >
-            <div class="container text-white">
+            <div class="base text-white">
               <div
                 class="bg-gray-300/20 py-1 px-2 lg:py-2 lg:px-3 w-fit rounded-full text-[0.5rem] lg:text-xs mb-4 lg:mb-6"
               >
