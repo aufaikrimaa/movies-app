@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-[#0f0f0f] h-screen text-white">
+  <div class="bg-[#0f0f0f]">
     <Navbar />
-    TV Shows
+    <MoviesMovieGrid category="tv" type="popular" title="Popular TV Shows" />
   </div>
 </template>
