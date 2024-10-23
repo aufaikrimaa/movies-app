@@ -42,9 +42,17 @@
 
 <script setup>
 const cate = ref("popular");
+const route = useRoute();
 const router = useRouter();
 
 const changeType = (type) => {
   cate.value = type;
+  router.push({ query: { type } });
 };
+
+onMounted(() => {
+  if (route.query.type) {
+    cate.value = route.query.type;
+  }
+});
 </script>

@@ -8,15 +8,19 @@
         >
           {{ title }}
         </div>
-        <ButtonOutline width="w-8 sm:w-32 lg:w-42" class="flex justify-center">
-          <span
-            class="hidden sm:block self-center sm:text-xs md:text-sm lg:text-md"
-            >explore more</span
+        <nuxt-link :to="`/${category}?type=${type}`">
+          <ButtonOutline
+            width="w-8 sm:w-32 lg:w-42"
+            class="flex justify-center"
           >
-          <Icon
-            name="uil:arrow-right"
-            class="self-center text-sm sm:text-lg lg:text-xl"
-        /></ButtonOutline>
+            <span
+              class="hidden sm:block self-center sm:text-xs md:text-sm lg:text-md"
+              >explore more</span
+            >
+            <Icon
+              name="uil:arrow-right"
+              class="self-center text-sm sm:text-lg lg:text-xl" /></ButtonOutline
+        ></nuxt-link>
       </div>
       <client-only>
         <Swiper :space-between="10" :slides-per-view="'auto'">
