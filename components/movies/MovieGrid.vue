@@ -1,6 +1,5 @@
 <template>
-  <div class="container pt-28">
-    <div class="text-white">{{ title }}</div>
+  <div class="container">
     <div class="grid gap-4 grid-cols-7 grid-rows-3">
       <div v-for="(item, index) in movies" :key="index">
         <MovieCard :item="item" :category="category" />
@@ -45,5 +44,5 @@ const fetchMovies = async () => {
   }
 };
 
-fetchMovies();
+watch(() => props.type, fetchMovies, { immediate: true });
 </script>
