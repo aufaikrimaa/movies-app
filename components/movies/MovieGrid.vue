@@ -1,6 +1,8 @@
 <template>
-  <div class="container">
-    <div class="grid gap-4 grid-cols-7 grid-rows-3">
+  <div class="base">
+    <div
+      class="grid gap-4 grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 grid-rows-4"
+    >
       <div v-for="(item, index) in movies" :key="index">
         <MovieCard :item="item" :category="category" />
       </div>
