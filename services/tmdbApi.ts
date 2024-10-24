@@ -1,5 +1,3 @@
-import { useFetch } from "#app";
-
 export const apiConfig = {
   baseUrl: "https://api.themoviedb.org/3/",
   oriImg: (imgPath: string) => `https://image.tmdb.org/t/p/original/${imgPath}`,
