@@ -8,7 +8,7 @@
           @click="changeType('popular')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
           :class="{
-            'bg-[#F8EDE3] text-red-500': cate === 'popular',
+            'bg-[#f8ede3] text-red-500': cate === 'popular',
           }"
           >Popular</ButtonOutline
         >
@@ -16,21 +16,21 @@
           width="w-24 sm:w-32 md:w-40"
           @click="changeType('top_rated')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
-          :class="{ 'bg-[#F8EDE3] text-red-500': cate === 'top_rated' }"
+          :class="{ 'bg-[#f8ede3] text-red-500': cate === 'top_rated' }"
           >Top Rated</ButtonOutline
         >
         <ButtonOutline
           width="w-24 sm:w-32 md:w-40"
           @click="changeType('now_playing')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
-          :class="{ 'bg-[#F8EDE3] text-red-500': cate === 'now_playing' }"
+          :class="{ 'bg-[#f8ede3] text-red-500': cate === 'now_playing' }"
           >Now Playing</ButtonOutline
         >
         <ButtonOutline
           width="w-24 sm:w-32 md:w-40"
           @click="changeType('upcoming')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
-          :class="{ 'bg-[#F8EDE3] text-red-500': cate === 'upcoming' }"
+          :class="{ 'bg-[#f8ede3] text-red-500': cate === 'upcoming' }"
           >Upcoming</ButtonOutline
         >
       </div>
