@@ -37,6 +37,7 @@
     </div>
 
     <MoviesMovieGrid category="tv" :type="cate" title="" />
+    <AppFooter class="mt-8" />
   </div>
 </template>
 
