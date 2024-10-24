@@ -8,7 +8,7 @@
           @click="changeType('popular')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
           :class="{
-            'bg-[#f8ede3] text-red-500': cate === 'popular',
+            'menu-active': cate === 'popular',
           }"
           >Popular</ButtonOutline
         >
@@ -16,21 +16,21 @@
           width="w-24 sm:w-32 md:w-40"
           @click="changeType('top_rated')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
-          :class="{ 'bg-[#f8ede3] text-red-500': cate === 'top_rated' }"
+          :class="{ 'menu-active': cate === 'top_rated' }"
           >Top Rated</ButtonOutline
         >
         <ButtonOutline
           width="w-24 sm:w-32 md:w-40"
           @click="changeType('airing_today')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
-          :class="{ 'bg-[#f8ede3] text-red-500': cate === 'airing_today' }"
+          :class="{ 'menu-active': cate === 'airing_today' }"
           >Airing Today</ButtonOutline
         >
         <ButtonOutline
           width="w-24 sm:w-32 md:w-40"
           @click="changeType('on_the_air')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
-          :class="{ 'bg-[#f8ede3] text-red-500': cate === 'on_the_air' }"
+          :class="{ 'menu-active': cate === 'on_the_air' }"
           >On The Air</ButtonOutline
         >
       </div>
@@ -56,3 +56,10 @@ onMounted(() => {
   }
 });
 </script>
+
+<style scoped>
+.menu-active {
+  background-color: #f8ede3;
+  color: #ef4444;
+}
+</style>
