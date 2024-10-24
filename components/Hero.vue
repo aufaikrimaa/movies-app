@@ -58,12 +58,13 @@
                     </div></VideoModalVideo
                   >
                 </Button>
-
-                <ButtonOutline
-                  width="w-1/2 sm:w-48 lg:w-60"
-                  class="text-md md:text-lg lg:text-xl"
-                  >More Info
-                </ButtonOutline>
+                <NuxtLink :to="'/movie/' + movie.id">
+                  <ButtonOutline
+                    width="w-1/2 sm:w-48 lg:w-60"
+                    class="text-md md:text-lg lg:text-xl"
+                    >More Info
+                  </ButtonOutline></NuxtLink
+                >
               </div>
             </div>
           </div>
