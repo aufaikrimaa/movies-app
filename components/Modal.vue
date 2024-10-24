@@ -14,9 +14,19 @@
       :esc-to-close="options.escToClose"
       :lock-scroll="options.lockScroll"
       :reserve-scroll-bar-gap="options.reserveScrollBarGap"
-      class="flex justify-center items-center"
-      content-class="max-w-xl mx-4 p-4 bg-white dark:bg-gray-900 border dark:border-gray-700 rounded-lg space-y-2"
+      class="modal flex justify-center items-center text-white"
+      content-class="relative max-w-xl mx-4 p-4 bg-[#0f0f0f] rounded-lg space-y-2"
     >
+      <button
+        @click="options.modelValue = false"
+        class="absolute top-4 right-4"
+      >
+        <Icon
+          name="mdi:window-close"
+          style="color: white"
+          class="self-center text-md md:text-lg lg:text-xl"
+        />
+      </button>
       <h1 class="text-xl">Hello World!</h1>
       <p>
         Magna deserunt nulla aliquip velit aute. Et occaecat elit nulla
@@ -25,7 +35,6 @@
         officia amet quis occaecat aliqua. Proident do irure amet ut occaecat
         dolor laboris consectetur.
       </p>
-      <button @click="options.modelValue = false">Close</button>
     </VueFinalModal>
 
     <ModalsContainer />
@@ -41,7 +50,7 @@ const getInitialValues = () => ({
   displayDirective: "if",
   hideOverlay: false,
   overlayTransition: "vfm-fade",
-  contentTransition: " vfm-slide-up",
+  contentTransition: "vfm-slide-up",
   clickToClose: true,
   escToClose: true,
   background: "non-interactive",
