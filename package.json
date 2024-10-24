@@ -16,6 +16,7 @@
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.2.4",
     "vue": "latest",
+    "vue-final-modal": "^4.5.5",
     "vue-router": "latest"
   },
   "devDependencies": {
