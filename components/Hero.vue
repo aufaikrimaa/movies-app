@@ -42,7 +42,10 @@
               </div>
               <div class="flex gap-4">
                 <Button width="w-1/2 sm:w-48 lg:w-60">
-                  <Modal>
+                  <VideoModalVideo
+                    :title="movie.title + ' - Video Trailer'"
+                    :id="movie.id"
+                  >
                     <div class="flex items-stretch gap-2 self-center">
                       <Icon
                         name="uil:play"
@@ -52,7 +55,13 @@
                       <div class="self-start text-md md:text-lg lg:text-xl">
                         Watch Trailer
                       </div>
-                    </div>
+                    </div></VideoModalVideo
+                  >
+
+                  <Modal :title="movie.title + ' - Video Trailer'">
+                    <template #content>
+                      <VideoItem :id="movie.id" />
+                    </template>
                   </Modal>
                 </Button>
 
@@ -119,6 +128,8 @@ const fetchMovies = async () => {
 };
 
 fetchMovies();
+
+console.log(movies);
 </script>
 
 <style scoped>
