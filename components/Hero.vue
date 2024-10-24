@@ -57,12 +57,6 @@
                       </div>
                     </div></VideoModalVideo
                   >
-
-                  <Modal :title="movie.title + ' - Video Trailer'">
-                    <template #content>
-                      <VideoItem :id="movie.id" />
-                    </template>
-                  </Modal>
                 </Button>
 
                 <ButtonOutline
