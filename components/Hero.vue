@@ -83,7 +83,6 @@
 import { apiConfig } from "@/services/tmdbApi";
 import tmdbApi from "@/services/tmdbApi";
 
-// Definisikan tipe data untuk respons API
 interface Movie {
   id: number;
   title: string;
@@ -115,10 +114,6 @@ const fetchMovies = async () => {
   } finally {
     loading.value = false;
   }
-  // const data = await tmdbApi.person(137905)
-  // movies.value = data;
-  // const data = await tmdbApi.person(137905, "movie_credits");
-  // console.log(data.cast);
 };
 
 fetchMovies();
