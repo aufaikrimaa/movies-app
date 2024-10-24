@@ -41,16 +41,21 @@
                 <h3 class="text-xs lg:text-base">{{ movie.overview }}</h3>
               </div>
               <div class="flex gap-4">
-                <Button width="w-1/2 sm:w-48 lg:w-60" class="flex gap-2">
-                  <Icon
-                    name="uil:play"
-                    style="color: white"
-                    class="self-center text-md md:text-lg lg:text-xl"
-                  />
-                  <span class="self-center text-md md:text-lg lg:text-xl"
-                    >Watch Trailer</span
-                  >
+                <Button width="w-1/2 sm:w-48 lg:w-60">
+                  <Modal>
+                    <div class="flex items-stretch gap-2 self-center">
+                      <Icon
+                        name="uil:play"
+                        style="color: white"
+                        class="self-center text-md md:text-lg lg:text-xl"
+                      />
+                      <div class="self-start text-md md:text-lg lg:text-xl">
+                        Watch Trailer
+                      </div>
+                    </div>
+                  </Modal>
                 </Button>
+
                 <ButtonOutline
                   width="w-1/2 sm:w-48 lg:w-60"
                   class="text-md md:text-lg lg:text-xl"
