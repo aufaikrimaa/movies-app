@@ -1,6 +1,5 @@
 <template>
-  <!-- <NuxtLink :to="link"> -->
-  <NuxtLink>
+  <NuxtLink :to="link">
     <div
       class="movie-card relative bg-cover bg-no-repeat bg-top pt-[160%] rounded-3xl mb-2 transition-all duration-300 hover:shadow-lg"
       :style="{ backgroundImage: `url(${bg})` }"
@@ -29,7 +28,7 @@ const props = defineProps({
   item: Object,
   category: String,
 });
-// const link = computed(() => `/${props.category}/${props.item.id}`);
+const link = computed(() => `/${props.category}/${props.item.id}`);
 
 const bg = computed(() =>
   apiConfig.w500Img(props.item.poster_path || props.item.backdrop_path)
