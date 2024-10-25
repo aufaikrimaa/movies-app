@@ -41,11 +41,12 @@
                 <h3 class="text-xs lg:text-base">{{ movie.overview }}</h3>
               </div>
               <div class="flex gap-4">
-                <Button width="w-1/2 sm:w-48 lg:w-60">
-                  <VideoModalVideo
-                    :title="movie.title + ' - Video Trailer'"
-                    :id="movie.id"
-                  >
+                <VideoModalVideo
+                  :title="movie.title + ' - Video Trailer'"
+                  :id="movie.id"
+                  class="w-1/2 sm:w-fit"
+                >
+                  <Button width="w-full sm:w-48 lg:w-60">
                     <div class="flex items-stretch gap-2 self-center">
                       <Icon
                         name="uil:play"
@@ -55,12 +56,13 @@
                       <div class="self-start text-md md:text-lg lg:text-xl">
                         Watch Trailer
                       </div>
-                    </div></VideoModalVideo
-                  >
-                </Button>
-                <NuxtLink :to="'/movie/' + movie.id">
+                    </div>
+                  </Button>
+                </VideoModalVideo>
+
+                <NuxtLink :to="'/movie/' + movie.id" class="w-1/2 sm:w-fit">
                   <ButtonOutline
-                    width="w-1/2 sm:w-48 lg:w-60"
+                    width="w-full sm:w-48 lg:w-60"
                     class="text-md md:text-lg lg:text-xl"
                     >More Info
                   </ButtonOutline></NuxtLink
