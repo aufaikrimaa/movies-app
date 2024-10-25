@@ -120,8 +120,6 @@ const fetchMovies = async () => {
 };
 
 fetchMovies();
-
-console.log(movies);
 </script>
 
 <style scoped>
