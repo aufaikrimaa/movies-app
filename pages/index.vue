@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <Hero />
     <MoviesMovieSlides
       category="movie"
@@ -28,7 +27,6 @@
       title="Popular TV Shows"
       class="pb-6 sm:pb-8 lg:pb-16"
     />
-    <AppFooter />
   </div>
 </template>
 
