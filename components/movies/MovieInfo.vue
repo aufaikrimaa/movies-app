@@ -12,12 +12,17 @@
           <span class="label">Status</span>:
           <span>{{ props.item.status }}</span>
         </div>
-        <div class="flex space-x-2">
+        <div v-if="category === 'movie'" class="flex space-x-2">
           <span class="label">Released Date</span>:
-          <span>{{ formattedDate }}</span>
+          <span>{{ formattedDate(props.item.release_date) }}</span>
         </div>
 
-        <div class="flex space-x-2">
+        <div v-if="category === 'tv'" class="flex space-x-2">
+          <span class="label">Last Air Date</span>:
+          <span>{{ formattedDate(props.item.last_air_date) }}</span>
+        </div>
+
+        <div v-if="category === 'movie'" class="flex space-x-2">
           <span class="label">Runtime</span>:
           <span>{{ props.runtime }}</span>
         </div>
@@ -32,14 +37,24 @@
           <span>{{ props.item.production_companies[0].name }}</span>
         </div>
 
-        <div class="flex space-x-2">
+        <div v-if="category === 'movie'" class="flex space-x-2">
           <span class="label">Budget</span>:
           <span>{{ formatCurrency(props.item.budget) }}</span>
         </div>
-        <div class="flex space-x-2">
+        <div v-if="category === 'movie'" class="flex space-x-2">
           <span class="label">Revenue</span>:
           <span>{{ formatCurrency(props.item.revenue) }}</span>
         </div>
+
+        <div v-if="category === 'tv'" class="flex space-x-2">
+          <span class="label">Total Episode</span>:
+          <span>{{ props.item.number_of_episodes }} episodes</span>
+        </div>
+        <div v-if="category === 'tv'" class="flex space-x-2">
+          <span class="label">Total Season</span>:
+          <span>{{ props.item.number_of_seasons }} season</span>
+        </div>
+
         <div class="flex space-x-2">
           <span class="label">Genre</span>:
           <div class="" v-for="(item, index) in props.item.genres" :key="index">
@@ -64,17 +79,21 @@ const props = defineProps({
   category: String,
 });
 
-const date = new Date(props.item.release_date);
-
-const formattedDate = new Intl.DateTimeFormat("en-EN", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-}).format(date);
-
 const languageName = new Intl.DisplayNames(["en"], { type: "language" }).of(
   props.item.original_language
 );
+
+function formattedDate(dateTime) {
+  const date = new Date(dateTime);
+
+  const formattedDate = new Intl.DateTimeFormat("en-EN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+
+  return formattedDate;
+}
 
 function formatCurrency(amount) {
   const formatted = new Intl.NumberFormat("en-US", {
@@ -101,7 +120,7 @@ const fetchCredits = async () => {
       cast.value = response.cast;
       crew.value = response.crew;
       const directors = crew.value.filter(
-        (person) => person.job === "Director"
+        (person) => person.job === "Director" || "Series Director"
       );
       if (directors.length > 0) {
         directorName.value = directors[0].name; // Set nama director pertama
@@ -121,9 +140,9 @@ const fetchCredits = async () => {
 
 fetchCredits();
 
-// console.log(cast);
-// console.log(crew);
-// console.log(directorName);
+console.log(cast);
+console.log(crew);
+console.log(props.item.last_air_date);
 </script>
 
 <style scoped>
