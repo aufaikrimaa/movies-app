@@ -46,9 +46,8 @@
               <span>{{ formattedRuntime }}</span>
             </div>
           </div>
-          <div class="text-sm md:text-md lg:text-lg mb-3 lg:mb-6">
-            {{ movie.overview }}
-          </div>
+
+          <MoviesMovieInfo :item="movie" :runtime="formattedRuntime" />
         </div>
       </div>
     </div>
@@ -122,6 +121,8 @@ const fetchDetail = async () => {
 
 // Memanggil fetchDetail ketika komponen dimount
 fetchDetail();
+
+console.log(movie);
 </script>
 
 <style scoped>
