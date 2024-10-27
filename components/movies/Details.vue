@@ -34,7 +34,7 @@
                 :vote_average="movie.vote_average"
               />
 
-              <div class="text-white/60 text-base md:text-md lg:text-lg flex">
+              <div class="text-white/80 text-base md:text-md lg:text-lg flex">
                 <span class="hidden sm:block">{{
                   voteAvg(movie.vote_average)
                 }}</span>
