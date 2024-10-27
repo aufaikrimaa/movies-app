@@ -4,7 +4,7 @@
       {{ props.item.overview }}
     </div>
     <div class="flex w-full">
-      <div class="w-1/3 grid gap-y-2">
+      <div class="w-1/3 grid gap-y-1">
         <div class="flex space-x-2">
           <span class="label">Director </span>: <span>{{}}</span>
         </div>
@@ -26,7 +26,7 @@
           <span>{{ languageName }}</span>
         </div>
       </div>
-      <div class="w-1/2 grid gap-y-2">
+      <div class="w-1/2 grid gap-y-1">
         <div class="flex space-x-2">
           <span class="label">Production</span>:
           <span>{{ props.item.production_companies[0].name }}</span>
@@ -49,10 +49,6 @@
               {{ item.name }}
             </div>
           </div>
-        </div>
-        <div class="flex space-x-2">
-          <span class="label">Official site</span>:
-          <span>{{ props.item.homepage }}</span>
         </div>
       </div>
     </div>
