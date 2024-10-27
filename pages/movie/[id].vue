@@ -48,7 +48,11 @@
               </div>
             </div>
 
-            <MoviesMovieInfo :item="movie" :runtime="formattedRuntime" />
+            <MoviesMovieInfo
+              :item="movie"
+              :runtime="formattedRuntime"
+              category="movie"
+            />
           </div>
         </div>
       </div>

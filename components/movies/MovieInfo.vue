@@ -6,7 +6,7 @@
     <div class="grid gap-y-2 md:gap-y-1 md:flex w-full">
       <div class="md:w-5/12 lg:w-1/2 grid gap-y-2 md:gap-y-1">
         <div class="flex space-x-2">
-          <span class="label">Director </span>: <span>{{}}</span>
+          <span class="label">Director </span>: <span>{{ directorName }}</span>
         </div>
         <div class="flex space-x-2">
           <span class="label">Status</span>:
@@ -56,9 +56,12 @@
 </template>
 
 <script setup>
+import tmdbApi from "@/services/tmdbApi";
+
 const props = defineProps({
   item: {},
   runtime: String,
+  category: String,
 });
 
 const date = new Date(props.item.release_date);
@@ -83,6 +86,44 @@ function formatCurrency(amount) {
 
   return formatted;
 }
+
+const cast = ref([]);
+const crew = ref([]);
+const directorName = ref("");
+const loading = ref(true);
+const error = ref(null);
+
+const fetchCredits = async () => {
+  try {
+    const response = await tmdbApi.credits(props.category, props.item.id);
+
+    if ((response && response.cast) || (response && response.crew)) {
+      cast.value = response.cast;
+      crew.value = response.crew;
+      const directors = crew.value.filter(
+        (person) => person.job === "Director"
+      );
+      if (directors.length > 0) {
+        directorName.value = directors[0].name; // Set nama director pertama
+      } else {
+        directorName.value = "Director not found";
+      }
+    } else {
+      error.value = "No credits found.";
+    }
+  } catch (err) {
+    error.value = "Error fetching credits.";
+    console.error("Error fetching credits:", err);
+  } finally {
+    loading.value = false;
+  }
+};
+
+fetchCredits();
+
+// console.log(cast);
+// console.log(crew);
+// console.log(directorName);
 </script>
 
 <style scoped>
