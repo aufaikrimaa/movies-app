@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div class="text-sm md:text-md lg:text-lg mb-3 lg:mb-6">
+  <div class="text-sm 2xl:text-lg">
+    <div class="mb-3 lg:mb-6">
       {{ props.item.overview }}
     </div>
-    <div class="flex w-full">
-      <div class="w-1/3 grid gap-y-1">
+    <div class="lg:flex w-full">
+      <div class="lg:w-1/2 grid gap-y-1">
         <div class="flex space-x-2">
           <span class="label">Director </span>: <span>{{}}</span>
         </div>
@@ -26,7 +26,7 @@
           <span>{{ languageName }}</span>
         </div>
       </div>
-      <div class="w-1/2 grid gap-y-1">
+      <div class="lg:w-1/2 grid gap-y-1">
         <div class="flex space-x-2">
           <span class="label">Production</span>:
           <span>{{ props.item.production_companies[0].name }}</span>
@@ -92,8 +92,8 @@ function formatCurrency(amount) {
   margin-right: 1.2rem;
   color: #fff;
 
-  @media (min-width: 760px) {
-    max-width: 110px;
+  @media (min-width: 1166px) {
+    max-width: 120px;
   }
 }
 </style>

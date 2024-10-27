@@ -6,19 +6,19 @@
     </div>
     <div
       v-else
-      class="relative h-[90vh] bg-no-repeat bg-cover bg-center py-4 lg:py-20"
+      class="relative bg-no-repeat bg-cover bg-center py-4 lg:py-20"
       :style="`background-image: linear-gradient(to top, #0f0f0f 30%, rgba(0, 0, 0, 0) 90%), url(${apiConfig.oriImg(
         movie.backdrop_path
       )})`"
     >
       <div class="flex justify-center">
         <div
-          class="base overview flex w-4/5 gap-10 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 text-white"
+          class="base overview flex xl:w-4/5 gap-10 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 text-white"
         >
           <img
             v-if="movie.poster_path"
             :src="apiConfig.w500Img(movie.poster_path)"
-            class="hidden md:block h-[36rem] rounded-3xl"
+            class="hidden md:block h-[24rem] lg:h-[32rem] 2xl:h-[36rem] rounded-3xl"
           />
           <div>
             <div class="text-3xl lg:text-6xl font-bold mb-3 lg:mb-6">
