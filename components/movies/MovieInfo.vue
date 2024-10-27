@@ -14,7 +14,7 @@
         </div>
         <div class="flex space-x-2">
           <span class="label">Released Date</span>:
-          <span>{{ props.item.release_date }}</span>
+          <span>{{ formattedDate }}</span>
         </div>
 
         <div class="flex space-x-2">
@@ -64,6 +64,14 @@ const props = defineProps({
   item: {},
   runtime: String,
 });
+
+const date = new Date(props.item.release_date);
+
+const formattedDate = new Intl.DateTimeFormat("en-EN", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(date);
 </script>
 
 <style scoped>
