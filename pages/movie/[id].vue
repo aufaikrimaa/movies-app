@@ -13,7 +13,7 @@
     >
       <div class="flex justify-center">
         <div
-          class="base overview flex xl:w-4/5 gap-10 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 text-white"
+          class="base overview flex 2xl:w-4/5 gap-10 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8 text-white"
         >
           <img
             v-if="movie.poster_path"
@@ -21,7 +21,7 @@
             class="hidden md:block h-[24rem] lg:h-[32rem] 2xl:h-[36rem] rounded-3xl"
           />
           <div>
-            <div class="text-3xl lg:text-6xl font-bold mb-3 lg:mb-6">
+            <div class="text-3xl lg:text-5xl font-bold mb-3 lg:mb-6">
               {{ movie.title }}
             </div>
             <!-- <div class="font-semibold text-xl ">

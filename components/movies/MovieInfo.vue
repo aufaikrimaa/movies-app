@@ -1,10 +1,10 @@
 <template>
-  <div class="text-sm 2xl:text-lg">
+  <div class="text-xs 2xl:text-base">
     <div class="mb-3 lg:mb-6">
       {{ props.item.overview }}
     </div>
-    <div class="lg:flex w-full">
-      <div class="lg:w-1/2 grid gap-y-1">
+    <div class="grid gap-y-2 md:gap-y-1 md:flex w-full">
+      <div class="md:w-5/12 lg:w-1/2 grid gap-y-2 md:gap-y-1">
         <div class="flex space-x-2">
           <span class="label">Director </span>: <span>{{}}</span>
         </div>
@@ -26,7 +26,7 @@
           <span>{{ languageName }}</span>
         </div>
       </div>
-      <div class="lg:w-1/2 grid gap-y-1">
+      <div class="lg:w-1/2 grid gap-y-2 md:gap-y-1">
         <div class="flex space-x-2">
           <span class="label">Production</span>:
           <span>{{ props.item.production_companies[0].name }}</span>
@@ -41,10 +41,10 @@
           <span>{{ formatCurrency(props.item.revenue) }}</span>
         </div>
         <div class="flex space-x-2">
-          <span class="label">Genres</span>:
+          <span class="label">Genre</span>:
           <div class="" v-for="(item, index) in props.item.genres" :key="index">
             <div
-              class="bg-gray-300/20 py-1 px-2 w-fit rounded-full text-[0.5rem] lg:text-xs"
+              class="bg-gray-300/20 py-0.5 px-2 w-fit rounded-full text-[0.6rem] 2xl:text-sm"
             >
               {{ item.name }}
             </div>
@@ -91,6 +91,10 @@ function formatCurrency(amount) {
   max-width: 90px;
   margin-right: 1.2rem;
   color: #fff;
+
+  @media (min-width: 769px) {
+    max-width: 76px;
+  }
 
   @media (min-width: 1166px) {
     max-width: 120px;
