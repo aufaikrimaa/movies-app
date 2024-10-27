@@ -11,43 +11,45 @@
         movie.backdrop_path
       )})`"
     >
-      <div
-        class="base flex gap-10 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 text-white"
-      >
-        <img
-          v-if="movie.poster_path"
-          :src="apiConfig.w500Img(movie.poster_path)"
-          class="hidden md:block h-[36rem] rounded-3xl"
-        />
-        <div>
-          <div class="text-3xl lg:text-6xl font-bold mb-3 lg:mb-6">
-            {{ movie.title }}
-          </div>
-          <!-- <div class="font-semibold text-xl ">
+      <div class="flex justify-center">
+        <div
+          class="base overview flex w-4/5 gap-10 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 text-white"
+        >
+          <img
+            v-if="movie.poster_path"
+            :src="apiConfig.w500Img(movie.poster_path)"
+            class="hidden md:block h-[36rem] rounded-3xl"
+          />
+          <div>
+            <div class="text-3xl lg:text-6xl font-bold mb-3 lg:mb-6">
+              {{ movie.title }}
+            </div>
+            <!-- <div class="font-semibold text-xl ">
             <span class="font-bold text-red-500">|</span> {{ movie.tagline }}
           </div> -->
-          <div class="flex mb-3 lg:mb-6">
-            <RatingStars
-              v-if="movie.vote_average"
-              :vote_average="movie.vote_average"
-            />
+            <div class="flex mb-3 lg:mb-6">
+              <RatingStars
+                v-if="movie.vote_average"
+                :vote_average="movie.vote_average"
+              />
 
-            <div class="text-white/60 text-base md:text-md lg:text-lg flex">
-              <span class="hidden sm:block">{{
-                voteAvg(movie.vote_average)
-              }}</span>
-              <span class="mx-2 hidden sm:block">·</span>
-              <span class="hidden sm:block"
-                >{{ formatReviews(movie.vote_count) }} Reviews</span
-              >
-              <span class="mx-2">·</span>
-              <span>{{ year }}</span>
-              <span class="mx-2">·</span>
-              <span>{{ formattedRuntime }}</span>
+              <div class="text-white/60 text-base md:text-md lg:text-lg flex">
+                <span class="hidden sm:block">{{
+                  voteAvg(movie.vote_average)
+                }}</span>
+                <span class="mx-2 hidden sm:block">·</span>
+                <span class="hidden sm:block"
+                  >{{ formatReviews(movie.vote_count) }} Reviews</span
+                >
+                <span class="mx-2">·</span>
+                <span>{{ year }}</span>
+                <span class="mx-2">·</span>
+                <span>{{ formattedRuntime }}</span>
+              </div>
             </div>
-          </div>
 
-          <MoviesMovieInfo :item="movie" :runtime="formattedRuntime" />
+            <MoviesMovieInfo :item="movie" :runtime="formattedRuntime" />
+          </div>
         </div>
       </div>
     </div>
@@ -125,8 +127,4 @@ fetchDetail();
 console.log(movie);
 </script>
 
-<style scoped>
-.text-stroke {
-  -webkit-text-stroke: 0.4px #ef4444;
-}
-</style>
+<style scoped></style>

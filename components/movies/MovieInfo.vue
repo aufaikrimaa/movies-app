@@ -3,8 +3,8 @@
     <div class="text-sm md:text-md lg:text-lg mb-3 lg:mb-6">
       {{ props.item.overview }}
     </div>
-    <div class="flex gap-12 w-full">
-      <div class="w-1/4">
+    <div class="flex w-full">
+      <div class="w-1/3 grid gap-y-2">
         <div class="flex space-x-2">
           <span class="label">Director </span>: <span>{{}}</span>
         </div>
@@ -26,7 +26,7 @@
           <span>{{ languageName }}</span>
         </div>
       </div>
-      <div class="w-2/3">
+      <div class="w-1/2 grid gap-y-2">
         <div class="flex space-x-2">
           <span class="label">Production</span>:
           <span>{{ props.item.production_companies[0].name }}</span>
@@ -93,7 +93,7 @@ function formatCurrency(amount) {
 .label {
   flex: 1;
   max-width: 90px;
-  margin-right: 1.5rem;
+  margin-right: 1.2rem;
   color: #fff;
 
   @media (min-width: 760px) {
