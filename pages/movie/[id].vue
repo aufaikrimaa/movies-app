@@ -28,7 +28,7 @@
             <span class="font-bold text-red-500">|</span> {{ movie.tagline }}
           </div> -->
             <div class="flex mb-3 lg:mb-6">
-              <RatingStars
+              <MoviesMovieStars
                 v-if="movie.vote_average"
                 :vote_average="movie.vote_average"
               />
