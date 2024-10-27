@@ -31,10 +31,17 @@
           <span>{{ languageName }}</span>
         </div>
       </div>
-      <div class="lg:w-1/2 grid gap-y-2 md:gap-y-1">
+      <div class="lg:w-7/12 grid gap-y-2 md:gap-y-1">
         <div class="flex space-x-2">
           <span class="label">Production</span>:
-          <span>{{ props.item.production_companies[0].name }}</span>
+          <span>{{
+            category === "movie"
+              ? props.item.production_companies[0].name
+              : props.item.production_companies
+                  .slice(0, 3)
+                  .map((company) => company.name)
+                  .join(", ")
+          }}</span>
         </div>
 
         <div v-if="category === 'movie'" class="flex space-x-2">
@@ -57,11 +64,15 @@
 
         <div class="flex space-x-2">
           <span class="label">Genre</span>:
-          <div class="" v-for="(item, index) in props.item.genres" :key="index">
+          <div class="flex flex-wrap gap-2">
             <div
               class="bg-gray-300/20 py-0.5 px-2 w-fit rounded-full text-[0.6rem] 2xl:text-sm"
+              v-for="(item, index) in props.item.genres"
+              :key="index"
             >
-              {{ item.name }}
+              <div class="">
+                {{ item.name }}
+              </div>
             </div>
           </div>
         </div>
@@ -140,9 +151,9 @@ const fetchCredits = async () => {
 
 fetchCredits();
 
-console.log(cast);
-console.log(crew);
-console.log(props.item.last_air_date);
+// console.log(cast);
+// console.log(crew);
+// console.log(props.item.last_air_date);
 </script>
 
 <style scoped>
@@ -157,7 +168,7 @@ console.log(props.item.last_air_date);
   }
 
   @media (min-width: 1166px) {
-    max-width: 120px;
+    max-width: 100px;
   }
 }
 </style>
