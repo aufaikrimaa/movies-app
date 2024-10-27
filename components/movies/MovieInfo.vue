@@ -23,7 +23,7 @@
         </div>
         <div class="flex space-x-2">
           <span class="label">Language</span>:
-          <span>{{ props.item.original_language }}</span>
+          <span>{{ languageName }}</span>
         </div>
       </div>
       <div class="w-2/3">
@@ -34,11 +34,11 @@
 
         <div class="flex space-x-2">
           <span class="label">Budget</span>:
-          <span>{{ props.item.budget }}</span>
+          <span>{{ formatCurrency(props.item.budget) }}</span>
         </div>
         <div class="flex space-x-2">
           <span class="label">Revenue</span>:
-          <span>{{ props.item.revenue }}</span>
+          <span>{{ formatCurrency(props.item.revenue) }}</span>
         </div>
         <div class="flex space-x-2">
           <span class="label">Genres</span>:
@@ -72,6 +72,21 @@ const formattedDate = new Intl.DateTimeFormat("en-EN", {
   month: "long",
   year: "numeric",
 }).format(date);
+
+const languageName = new Intl.DisplayNames(["en"], { type: "language" }).of(
+  props.item.original_language
+);
+
+function formatCurrency(amount) {
+  const formatted = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+
+  return formatted;
+}
 </script>
 
 <style scoped>
