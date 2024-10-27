@@ -66,7 +66,7 @@
           <span class="label">Genre</span>:
           <div class="flex flex-wrap gap-2">
             <div
-              class="bg-gray-300/20 py-0.5 px-2 w-fit rounded-full text-[0.6rem] 2xl:text-sm"
+              class="bg-gray-300/20 py-0.5 px-2 w-fit rounded-full text-[0.6rem] 2xl:text-sm self-center"
               v-for="(item, index) in props.item.genres"
               :key="index"
             >
@@ -77,6 +77,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      <PersonCast :cast="cast" />
     </div>
   </div>
 </template>
@@ -150,8 +153,7 @@ const fetchCredits = async () => {
 };
 
 fetchCredits();
-
-// console.log(cast);
+console.log(cast);
 // console.log(crew);
 // console.log(props.item.last_air_date);
 </script>
