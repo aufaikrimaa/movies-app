@@ -5,7 +5,7 @@
     </div>
     <div class="grid gap-y-2 md:gap-y-1 md:flex w-full">
       <div class="md:w-5/12 lg:w-1/2 grid gap-y-2 md:gap-y-1">
-        <div class="flex space-x-2">
+        <div v-if="directorName !== 'none'" class="flex space-x-2">
           <span class="label">Director </span>: <span>{{ directorName }}</span>
         </div>
         <div class="flex space-x-2">
@@ -130,13 +130,13 @@ const fetchCredits = async () => {
     if ((response && response.cast) || (response && response.crew)) {
       cast.value = response.cast;
       crew.value = response.crew;
-      const directors = crew.value.filter(
-        (person) => person.job === "Director" || "Series Director"
+      const directors = crew.value.filter((person) =>
+        person.job.includes("Director")
       );
       if (directors.length > 0) {
         directorName.value = directors[0].name; // Set nama director pertama
       } else {
-        directorName.value = "Director not found";
+        directorName.value = "none";
       }
     } else {
       error.value = "No credits found.";
