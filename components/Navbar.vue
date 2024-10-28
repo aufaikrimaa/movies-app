@@ -23,34 +23,40 @@
     <nav class="hidden lg:block absolute base z-20 top-8">
       <div class="text-white text-2xl flex gap-2 font-bold">
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
-          <nuxt-link to="/" class="relative z-10">Home</nuxt-link>
-          <div
-            class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
-            :class="{
-              'scale-100': $route.path === '/',
-              'scale-0 group-hover:scale-100': $route.path !== '/',
-            }"
-          ></div>
+          <nuxt-link to="/"
+            ><div class="relative z-10">Home</div>
+            <div
+              class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
+              :class="{
+                'scale-100': $route.path === '/',
+                'scale-0 group-hover:scale-100': $route.path !== '/',
+              }"
+            ></div>
+          </nuxt-link>
         </div>
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
-          <nuxt-link to="/movie" class="relative z-10">Movies</nuxt-link>
-          <div
-            class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
-            :class="{
-              'scale-100': $route.path === '/movie',
-              'scale-0 group-hover:scale-100': $route.path !== '/movie',
-            }"
-          ></div>
+          <nuxt-link to="/movie"
+            ><div class="relative z-10">Movies</div>
+            <div
+              class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
+              :class="{
+                'scale-100': $route.path === '/movie',
+                'scale-0 group-hover:scale-100': $route.path !== '/movie',
+              }"
+            ></div>
+          </nuxt-link>
         </div>
         <div class="relative py-1 px-6 rounded-full overflow-hidden group">
-          <nuxt-link to="/tv" class="relative z-10">TV Shows</nuxt-link>
-          <div
-            class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
-            :class="{
-              'scale-100': $route.path === '/tv',
-              'scale-0 group-hover:scale-100': $route.path !== '/tv',
-            }"
-          ></div>
+          <nuxt-link to="/tv"
+            ><div class="relative z-10">TV Shows</div>
+            <div
+              class="absolute inset-0 bg-gray-300/20 transition-transform duration-300 ease-in-out rounded-full"
+              :class="{
+                'scale-100': $route.path === '/tv',
+                'scale-0 group-hover:scale-100': $route.path !== '/tv',
+              }"
+            ></div>
+          </nuxt-link>
         </div>
       </div>
     </nav>
