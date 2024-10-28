@@ -52,13 +52,11 @@ const error = ref(null);
 const fetchMovies = async () => {
   try {
     let response;
-    if (props.category === "movie") {
-      if (route.params.id) {
-        response = await tmdbApi.similar(props.category, route.params.id);
-      } else {
-        response = await tmdbApi.getMoviesList(props.type);
-      }
-    } else if (props.category === "tv") {
+    if (route.params.id) {
+      response = await tmdbApi.similar(props.category, route.params.id);
+    } else if (props.category === "movie" && !route.params.id) {
+      response = await tmdbApi.getMoviesList(props.type);
+    } else if (props.category === "tv" && !route.params.id) {
       response = await tmdbApi.getTvList(props.type);
     }
 
