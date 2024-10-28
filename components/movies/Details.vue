@@ -78,20 +78,20 @@ const props = defineProps({
   category: String,
 });
 
-// Mengambil parameter id dari URL
 const route = useRoute();
 const movieId = route.params.id;
 
-// State untuk menyimpan data movie, loading state, dan error
 const movie = ref({});
 const loading = ref(true);
 const error = ref(null);
 
-// Year dan formatted runtime juga disimpan di state
+const cast = ref([]);
+const crew = ref([]);
+const directorName = ref("");
+
 const year = ref("");
 const formattedRuntime = ref("");
 
-// Fungsi untuk format reviews
 const formatReviews = (num) => {
   if (num >= 1000000) {
     return (num / 1000000).toFixed(1) + "M";
@@ -101,13 +101,10 @@ const formatReviews = (num) => {
     return num;
   }
 };
-
-// Fungsi untuk format vote average
 const voteAvg = (vote) => {
   return vote ? vote.toFixed(1) : "N/A";
 };
 
-// Fungsi untuk fetch detail movie
 const fetchDetail = async () => {
   loading.value = true;
   error.value = null;
@@ -116,12 +113,10 @@ const fetchDetail = async () => {
     const response = await tmdbApi.detail(props.category, movieId);
     movie.value = response;
 
-    // Menghitung year dari release_date
     if (movie.value.release_date) {
       year.value = movie.value.release_date.split("-")[0];
     }
 
-    // Menghitung runtime dan memformatnya
     if (movie.value.runtime) {
       const hours = Math.floor(movie.value.runtime / 60);
       const minutes = movie.value.runtime % 60;
@@ -135,17 +130,6 @@ const fetchDetail = async () => {
   }
 };
 
-// Memanggil fetchDetail ketika komponen dimount
-fetchDetail();
-
-// console.log(movie);
-
-const cast = ref([]);
-const crew = ref([]);
-const directorName = ref("");
-const loadingc = ref(true);
-const errorc = ref(null);
-
 const fetchCredits = async () => {
   try {
     const response = await tmdbApi.credits(props.category, movieId);
@@ -157,21 +141,19 @@ const fetchCredits = async () => {
         person.job.includes("Director")
       );
       if (directors.length > 0) {
-        directorName.value = directors[0].name; // Set nama director pertama
+        directorName.value = directors[0].name;
       } else {
         directorName.value = "none";
       }
     } else {
-      errorc.value = "No credits found.";
+      console.error("No credits found.");
     }
   } catch (err) {
-    errorc.value = "Error fetching credits.";
     console.error("Error fetching credits:", err);
-  } finally {
-    loadingc.value = false;
   }
 };
 
+fetchDetail();
 fetchCredits();
 </script>
 
