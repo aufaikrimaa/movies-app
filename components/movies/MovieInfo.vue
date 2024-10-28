@@ -1,6 +1,6 @@
 <template>
   <div class="text-xs lg:text-sm xl:text-base">
-    <div class="mb-3 lg:mb-6">
+    <div class="mb-3">
       {{ props.item.overview }}
     </div>
     <div class="grid gap-y-2 xl:gap-y-1 xl:flex w-full">
@@ -126,10 +126,10 @@ function formatCurrency(amount) {
   color: #fff;
 
   @media (min-width: 769px) {
-    max-width: 76px;
+    max-width: 120px;
   }
 
-  @media (min-width: 1166px) {
+  @media (min-width: 1280px) {
     max-width: 100px;
   }
 }

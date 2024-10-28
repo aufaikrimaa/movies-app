@@ -7,34 +7,34 @@
     <div
       v-else
       class="relative bg-no-repeat bg-cover bg-center py-4 lg:pt-20 lg:pb-8"
-      :style="`background-image: linear-gradient(to top, #0f0f0f 30%, rgba(0, 0, 0, 0) 90%), url(${apiConfig.oriImg(
+      :style="`background-image: linear-gradient(to top, #0f0f0f 30%, rgba(0, 0, 0, 0.5) 90%), url(${apiConfig.oriImg(
         movie.backdrop_path
       )})`"
     >
       <div class="flex justify-center">
         <div
-          class="base overview flex lg:w-4/5 xl:w-full 2xl:w-4/5 gap-10 pt-12 sm:pt-16 md:pt-20 lg:pt-16 text-white"
+          class="base overview flex lg:w-4/5 xl:w-full 2xl:w-4/5 gap-6 2xl:gap-10 pt-12 sm:pt-16 md:pt-20 lg:pt-16 text-white"
         >
           <img
             v-if="movie.poster_path"
             :src="apiConfig.w500Img(movie.poster_path)"
-            class="hidden md:block h-[24rem] lg:h-[28rem] xl:h-[36rem] rounded-3xl"
+            class="hidden md:block h-[23rem] lg:h-[27rem] xl:h-[34rem] rounded-3xl"
           />
           <div :style="{ width: '80%' }">
-            <div class="text-3xl lg:text-5xl font-bold mb-3 lg:mb-6">
+            <div class="text-3xl lg:text-4xl font-bold mb-3">
               <div v-if="category === 'movie'">{{ movie.title }}</div>
               <div v-if="category === 'tv'">{{ movie.name }}</div>
             </div>
             <!-- <div class="font-semibold text-xl ">
               <span class="font-bold text-red-500">|</span> {{ movie.tagline }}
             </div> -->
-            <div class="flex mb-3 lg:mb-6">
+            <div class="flex mb-3">
               <MoviesMovieStars
                 v-if="movie.vote_average"
                 :vote_average="movie.vote_average"
               />
 
-              <div class="text-white/80 text-base md:text-md lg:text-lg flex">
+              <div class="text-white/50 text-base md:text-md lg:text-lg flex">
                 <span class="hidden sm:block">{{
                   voteAvg(movie.vote_average)
                 }}</span>
