@@ -63,10 +63,12 @@
     <div class="base block xl:hidden">
       <PersonCast :cast="cast" />
     </div>
-    <div class="base text-white">
-      Detail Movie
-      <div>ID: {{ movieId }}</div>
-    </div>
+    <MoviesMovieSlides
+      :category="props.category"
+      title="More like this"
+      type="popular"
+      class="pb-12"
+    />
   </div>
 </template>
 

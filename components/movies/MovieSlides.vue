@@ -43,6 +43,8 @@ const props = defineProps({
   title: String,
 });
 
+const route = useRoute();
+
 const movies = ref([]);
 const loading = ref(true);
 const error = ref(null);
@@ -51,13 +53,23 @@ const fetchMovies = async () => {
   try {
     let response;
     if (props.category === "movie") {
-      response = await tmdbApi.getMoviesList(props.type);
+      if (route.params.id) {
+        response = await tmdbApi.similar(props.category, route.params.id);
+      } else {
+        response = await tmdbApi.getMoviesList(props.type);
+      }
     } else if (props.category === "tv") {
       response = await tmdbApi.getTvList(props.type);
     }
 
     if (response && response.results) {
-      movies.value = response.results;
+      if (route.params.id) {
+        movies.value = response.results.filter(
+          (res) => res.poster_path !== null
+        );
+      } else {
+        movies.value = response.results;
+      }
     } else {
       error.value = "No movies found.";
     }
