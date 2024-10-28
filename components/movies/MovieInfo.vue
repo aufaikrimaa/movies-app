@@ -131,7 +131,7 @@ const fetchCredits = async () => {
     const response = await tmdbApi.credits(props.category, props.item.id);
 
     if ((response && response.cast) || (response && response.crew)) {
-      cast.value = response.cast;
+      cast.value = response.cast.filter((cs) => cs.profile_path !== null);
       crew.value = response.crew;
       const directors = crew.value.filter((person) =>
         person.job.includes("Director")
@@ -153,6 +153,7 @@ const fetchCredits = async () => {
 };
 
 fetchCredits();
+
 console.log(cast);
 // console.log(crew);
 // console.log(props.item.last_air_date);
