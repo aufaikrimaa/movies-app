@@ -1,6 +1,13 @@
 <template>
   <div class="text-white">
-    <div class="mt-4 mb-1 text-xl lg:text-2xl font-semibold">Cast</div>
+    <div class="mt-4 mb-1">
+      <h1
+        class="w-fit text-white sm:text-lg md:text-xl lg:text-2xl font-semibold self-center rounded-full"
+        :style="`background-image: linear-gradient(to right, #ef4444, rgba(0, 0, 0, 0))`"
+      >
+        Cast
+      </h1>
+    </div>
     <div class="">
       <div v-if="cast.length > 0" class="">
         <client-only

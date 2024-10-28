@@ -60,7 +60,7 @@
         </div>
       </div>
     </div>
-    <div class="base block xl:hidden">
+    <div class="base block pb-8 xl:hidden">
       <PersonCast :cast="cast" />
     </div>
     <MoviesMovieSlides
