@@ -13,7 +13,7 @@
     >
       <div class="flex justify-center">
         <div
-          class="base overview flex 2xl:w-4/5 gap-10 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8 text-white"
+          class="base overview flex 2xl:w-4/5 gap-10 pt-12 sm:pt-16 md:pt-20 lg:pt-16 pb-8 text-white"
         >
           <img
             v-if="movie.poster_path"
