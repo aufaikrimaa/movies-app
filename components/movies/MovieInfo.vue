@@ -1,12 +1,13 @@
 <template>
-  <div class="text-xs 2xl:text-base">
+  <div class="text-xs lg:text-sm xl:text-base">
     <div class="mb-3 lg:mb-6">
       {{ props.item.overview }}
     </div>
-    <div class="grid gap-y-2 md:gap-y-1 md:flex w-full">
-      <div class="md:w-5/12 lg:w-1/2 grid gap-y-2 md:gap-y-1">
+    <div class="grid gap-y-2 xl:gap-y-1 xl:flex w-full">
+      <div class="xl:w-5/12 grid gap-y-2 xl:gap-y-1">
         <div v-if="directorName !== 'none'" class="flex space-x-2">
-          <span class="label">Director </span>: <span>{{ directorName }}</span>
+          <span class="label">Director </span>:
+          <span>{{ props.directorName }}</span>
         </div>
         <div class="flex space-x-2">
           <span class="label">Status</span>:
@@ -31,7 +32,7 @@
           <span>{{ languageName }}</span>
         </div>
       </div>
-      <div class="lg:w-7/12 grid gap-y-2 md:gap-y-1">
+      <div class="xl:w-7/12 grid gap-y-2 xl:gap-y-1">
         <div class="flex space-x-2">
           <span class="label">Production</span>:
           <span>{{
@@ -78,19 +79,15 @@
         </div>
       </div>
     </div>
-    <div>
-      <PersonCast :cast="cast" />
-    </div>
   </div>
 </template>
 
 <script setup>
-import tmdbApi from "@/services/tmdbApi";
-
 const props = defineProps({
   item: {},
   runtime: String,
   category: String,
+  directorName: String,
 });
 
 const languageName = new Intl.DisplayNames(["en"], { type: "language" }).of(
@@ -119,44 +116,6 @@ function formatCurrency(amount) {
 
   return formatted;
 }
-
-const cast = ref([]);
-const crew = ref([]);
-const directorName = ref("");
-const loading = ref(true);
-const error = ref(null);
-
-const fetchCredits = async () => {
-  try {
-    const response = await tmdbApi.credits(props.category, props.item.id);
-
-    if ((response && response.cast) || (response && response.crew)) {
-      cast.value = response.cast.filter((cs) => cs.profile_path !== null);
-      crew.value = response.crew;
-      const directors = crew.value.filter((person) =>
-        person.job.includes("Director")
-      );
-      if (directors.length > 0) {
-        directorName.value = directors[0].name; // Set nama director pertama
-      } else {
-        directorName.value = "none";
-      }
-    } else {
-      error.value = "No credits found.";
-    }
-  } catch (err) {
-    error.value = "Error fetching credits.";
-    console.error("Error fetching credits:", err);
-  } finally {
-    loading.value = false;
-  }
-};
-
-fetchCredits();
-
-console.log(cast);
-// console.log(crew);
-// console.log(props.item.last_air_date);
 </script>
 
 <style scoped>

@@ -6,21 +6,21 @@
     </div>
     <div
       v-else
-      class="relative bg-no-repeat bg-cover bg-center py-4 lg:py-20"
+      class="relative bg-no-repeat bg-cover bg-center py-4 lg:pt-20 lg:pb-8"
       :style="`background-image: linear-gradient(to top, #0f0f0f 30%, rgba(0, 0, 0, 0) 90%), url(${apiConfig.oriImg(
         movie.backdrop_path
       )})`"
     >
       <div class="flex justify-center">
         <div
-          class="base overview flex 2xl:w-4/5 gap-10 pt-12 sm:pt-16 md:pt-20 lg:pt-16 pb-8 text-white"
+          class="base overview flex lg:w-4/5 xl:w-full 2xl:w-4/5 gap-10 pt-12 sm:pt-16 md:pt-20 lg:pt-16 text-white"
         >
           <img
             v-if="movie.poster_path"
             :src="apiConfig.w500Img(movie.poster_path)"
-            class="hidden md:block h-[24rem] lg:h-[32rem] 2xl:h-[36rem] rounded-3xl"
+            class="hidden md:block h-[24rem] lg:h-[28rem] xl:h-[36rem] rounded-3xl"
           />
-          <div>
+          <div :style="{ width: '80%' }">
             <div class="text-3xl lg:text-5xl font-bold mb-3 lg:mb-6">
               <div v-if="category === 'movie'">{{ movie.title }}</div>
               <div v-if="category === 'tv'">{{ movie.name }}</div>
@@ -53,10 +53,15 @@
               :item="movie"
               :runtime="formattedRuntime"
               :category="props.category"
+              :director-name="directorName"
             />
+            <PersonCast :cast="cast" class="hidden xl:block" />
           </div>
         </div>
       </div>
+    </div>
+    <div class="base block xl:hidden">
+      <PersonCast :cast="cast" />
     </div>
     <div class="base text-white">
       Detail Movie
@@ -134,6 +139,40 @@ const fetchDetail = async () => {
 fetchDetail();
 
 // console.log(movie);
+
+const cast = ref([]);
+const crew = ref([]);
+const directorName = ref("");
+const loadingc = ref(true);
+const errorc = ref(null);
+
+const fetchCredits = async () => {
+  try {
+    const response = await tmdbApi.credits(props.category, movieId);
+
+    if ((response && response.cast) || (response && response.crew)) {
+      cast.value = response.cast.filter((cs) => cs.profile_path !== null);
+      crew.value = response.crew;
+      const directors = crew.value.filter((person) =>
+        person.job.includes("Director")
+      );
+      if (directors.length > 0) {
+        directorName.value = directors[0].name; // Set nama director pertama
+      } else {
+        directorName.value = "none";
+      }
+    } else {
+      errorc.value = "No credits found.";
+    }
+  } catch (err) {
+    errorc.value = "Error fetching credits.";
+    console.error("Error fetching credits:", err);
+  } finally {
+    loadingc.value = false;
+  }
+};
+
+fetchCredits();
 </script>
 
 <style scoped></style>

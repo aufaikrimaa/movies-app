@@ -7,7 +7,7 @@
 
     <img
       :src="apiConfig.w500Img(props.person.profile_path)"
-      class="h-[10rem] h-auto rounded-lg"
+      class="h-[7rem] sm:h-[8rem] lg:h-[10rem] h-auto rounded-lg"
       alt="Cast Image"
     />
 
