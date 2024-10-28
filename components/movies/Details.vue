@@ -137,7 +137,9 @@ const fetchCredits = async () => {
     const response = await tmdbApi.credits(props.category, movieId);
 
     if ((response && response.cast) || (response && response.crew)) {
-      cast.value = response.cast.filter((cs) => cs.profile_path !== null);
+      cast.value = response.cast
+        .filter((cs) => cs.profile_path !== null)
+        .slice(0, 20);
       crew.value = response.crew;
       const directors = crew.value.filter((person) =>
         person.job.includes("Director")
