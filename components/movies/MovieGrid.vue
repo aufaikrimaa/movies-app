@@ -14,7 +14,10 @@
         @click="loadMoreMovies"
         width="w-20 sm:w-28 md:w-36"
       >
-        Load More
+        <div class="flex justify-center gap-1">
+          <span class="text-sm">Load More</span>
+          <Icon name="uil:arrow-down" class="self-center text-lg" />
+        </div>
       </ButtonOutline>
     </div>
 
