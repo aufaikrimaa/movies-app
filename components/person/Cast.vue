@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white">
+  <div v-if="cast.length > 0" class="text-white">
     <div class="mt-4 mb-1">
       <h1
         class="w-fit text-white sm:text-lg md:text-xl lg:text-2xl font-semibold self-center rounded-full"
@@ -9,7 +9,7 @@
       </h1>
     </div>
     <div class="">
-      <div v-if="cast.length > 0" class="">
+      <div class="">
         <client-only
           ><Swiper :slides-per-view="'auto'">
             <SwiperSlide v-for="(item, index) in cast" :key="index">

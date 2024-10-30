@@ -35,11 +35,13 @@
               />
 
               <div class="text-white/50 text-base md:text-md lg:text-lg flex">
-                <span class="hidden sm:block">{{
+                <span v-if="movie.vote_average" class="hidden sm:block">{{
                   voteAvg(movie.vote_average)
                 }}</span>
-                <span class="mx-2 hidden sm:block">·</span>
-                <span class="hidden sm:block"
+                <span v-if="movie.vote_average" class="mx-2 hidden sm:block"
+                  >·</span
+                >
+                <span v-if="movie.vote_count" class="hidden sm:block"
                   >{{ formatReviews(movie.vote_count) }} Reviews</span
                 >
                 <span v-if="movie.release_date" class="mx-2">·</span>
