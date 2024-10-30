@@ -1,5 +1,5 @@
 <template>
-  <div class="w-fit">
+  <div class="w-fit text-center">
     <!-- <nuxt-link
       class="credits-item__link"
       :to="{ name: 'person-id', params: { id: props.person.id } }"
@@ -7,11 +7,11 @@
 
     <img
       :src="apiConfig.w500Img(props.person.profile_path)"
-      class="h-[7rem] sm:h-[8rem] lg:h-[10rem] h-auto rounded-lg"
+      class="h-[6.8rem] sm:h-[8rem] lg:h-[10rem] h-auto rounded-lg"
       alt="Cast Image"
     />
 
-    <h2 class="text-[0.6rem]">
+    <h2 class="text-[0.6rem] mt-1">
       {{ props.person.name }}
     </h2>
 
