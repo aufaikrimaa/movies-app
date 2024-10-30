@@ -65,6 +65,11 @@
     <div class="base block pb-8 xl:hidden">
       <PersonCast :cast="cast" />
     </div>
+    <MediaMovieImages
+      :category="props.category"
+      :id="movieId"
+      :orilang="movie.original_language"
+    />
     <MoviesMovieSlides
       :category="props.category"
       title="More like this"
