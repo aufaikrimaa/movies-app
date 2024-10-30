@@ -70,6 +70,7 @@
       :id="movieId"
       :orilang="movie.original_language"
     />
+    <MediaMovieVideos :category="props.category" :id="movieId" />
     <MoviesMovieSlides
       :category="props.category"
       title="More like this"
