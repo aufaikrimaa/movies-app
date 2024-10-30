@@ -65,12 +65,41 @@
     <div class="base block pb-8 xl:hidden">
       <PersonCast :cast="cast" />
     </div>
-    <MediaMovieImages
-      :category="props.category"
-      :id="movieId"
-      :orilang="movie.original_language"
-    />
-    <MediaMovieVideos :category="props.category" :id="movieId" />
+    <div class="my-4 md:my-8 xl:my-12">
+      <div class="base flex justify-center md:justify-end gap-4">
+        <ButtonOutline
+          @click="changeMenu('videos')"
+          width="w-24 sm:w-32 md:w-40"
+          class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
+          :class="{
+            'menu-active': menus === 'videos',
+          }"
+          >Videos</ButtonOutline
+        >
+        <ButtonOutline
+          @click="changeMenu('images')"
+          width="w-24 sm:w-32 md:w-40"
+          class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
+          :class="{
+            'menu-active': menus === 'images',
+          }"
+          >Images</ButtonOutline
+        >
+      </div>
+
+      <MediaMovieImages
+        :category="props.category"
+        :id="movieId"
+        :orilang="movie.original_language"
+        v-if="menus === 'images'"
+      />
+      <MediaMovieVideos
+        :category="props.category"
+        :id="movieId"
+        v-if="menus === 'videos'"
+      />
+    </div>
+
     <MoviesMovieSlides
       :category="props.category"
       title="More like this"
@@ -90,6 +119,12 @@ const props = defineProps({
 
 const route = useRoute();
 const movieId = route.params.id;
+
+const menus = ref("videos");
+
+const changeMenu = (menu) => {
+  menus.value = menu;
+};
 
 const movie = ref({});
 const loading = ref(true);
@@ -169,4 +204,9 @@ fetchDetail();
 fetchCredits();
 </script>
 
-<style scoped></style>
+<style scoped>
+.menu-active {
+  background-color: #f8ede3;
+  color: #ef4444;
+}
+</style>
