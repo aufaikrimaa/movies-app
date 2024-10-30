@@ -1,9 +1,11 @@
 <template>
   <div class="base text-white">
-    <h1 class="ml-1 text-xs sm:text-sm md:text-base lg:text-lg text-white/60">
+    <h1
+      class="ml-1 text-xs sm:text-sm md:text-base lg:text-lg text-white/60 my-6"
+    >
       {{ videos.length }} videos
     </h1>
-    <div class="grid gap-2 sm:gap-3 grid-cols-1 md:grid-cols-2 gap-y-4">
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 gap-y-4">
       <div v-for="(vid, index) in videos" :key="index">
         <iframe
           :src="'https://www.youtube.com/embed/' + vid.key"

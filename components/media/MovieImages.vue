@@ -1,6 +1,6 @@
 <template>
   <div class="base text-white">
-    <h1 class="sm:text-lg md:text-xl lg:text-2xl font-semibold mt-8 mb-6">
+    <h1 class="sm:text-lg md:text-xl lg:text-2xl font-semibold my-6">
       Backdrops
       <span
         class="ml-1 text-xs sm:text-sm md:text-base lg:text-lg text-white/60"
@@ -8,7 +8,7 @@
       >
     </h1>
     <div
-      class="grid gap-2 sm:gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-6 sm:gap-y-4"
+      class="grid gap-2 gap-y-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
     >
       <div v-for="(img, index) in backdrops" :key="index">
         <img :src="apiConfig.oriImg(img.file_path)" />
@@ -23,7 +23,7 @@
       >
     </h1>
     <div
-      class="grid gap-2 sm:gap-3 grid-cols-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-y-6 sm:gap-y-8"
+      class="grid gap-2 gap-y-2 grid-cols-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8"
     >
       <div v-for="(img, index) in posters" :key="index">
         <img :src="apiConfig.oriImg(img.file_path)" />
