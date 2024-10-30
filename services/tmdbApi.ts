@@ -56,6 +56,9 @@ const tmdbApi = {
   getVideos: (cate: keyof typeof category, id: number) => {
     return useTmdbApi(`${category[cate]}/${id}/videos`);
   },
+  getImages: (cate: keyof typeof category, id: number) => {
+    return useTmdbApi(`${category[cate]}/${id}/images`);
+  },
   search: (cate: keyof typeof category, params: Record<string, any>) => {
     return useTmdbApi(`search/${category[cate]}`, params);
   },
