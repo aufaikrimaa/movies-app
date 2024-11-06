@@ -1,5 +1,6 @@
 <template>
   <div class="cursor-grab active:cursor-grabbing">
+    <NuxtLoadingIndicator color="#ef4444" :duration="5000" :height="6" />
     <client-only>
       <Swiper
         :modules="[SwiperAutoplay, SwiperEffectCreative]"
@@ -100,10 +101,12 @@ interface TMDBResponse {
 }
 
 const movies = ref<Movie[]>([]);
-const loading = ref<boolean>(true);
+const loading = useLoadingIndicator();
+
 const error = ref<string | null>(null);
 
 const fetchMovies = async () => {
+  loading.start();
   try {
     const response = (await tmdbApi.getMoviesList("popular")) as TMDBResponse;
     if (response && response.results) {
@@ -115,7 +118,7 @@ const fetchMovies = async () => {
     error.value = "Error fetching movies.";
     console.error("Error fetching movies:", err);
   } finally {
-    loading.value = false;
+    loading.finish();
   }
 };
 
