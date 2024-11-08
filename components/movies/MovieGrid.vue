@@ -22,7 +22,9 @@
     </div>
 
     <!-- Loading Indicator -->
-    <div v-if="loading" class="text-center my-4">Loading...</div>
+    <div v-if="loading" class="flex justify-center text-white my-60">
+      <div class="animate-bounce self-center"><Logo /></div>
+    </div>
 
     <!-- Error Message -->
     <div v-if="error" class="text-center text-red-500">{{ error }}</div>
