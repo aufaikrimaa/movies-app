@@ -9,18 +9,18 @@
           {{ title }}
         </div>
         <nuxt-link :to="`/${category}?type=${type}`">
-          <ButtonOutline
-            width="w-8 sm:w-32 lg:w-42"
-            class="flex justify-center"
-          >
-            <span
-              class="hidden sm:block self-center sm:text-xs md:text-sm lg:text-md"
+          <ButtonOutline width="w-8 sm:w-32 lg:w-42" class="flex justify-center">
+            <span class="hidden sm:block self-center sm:text-xs md:text-sm lg:text-md"
               >explore more</span
             >
             <Icon
               name="uil:arrow-right"
               class="self-center text-sm sm:text-lg lg:text-xl" /></ButtonOutline
         ></nuxt-link>
+      </div>
+
+      <div v-if="loading" class="h-full flex justify-center bg-[#0f0f0f] text-white">
+        <div class="animate-bounce self-center"><Logo /></div>
       </div>
       <client-only>
         <Swiper :space-between="10" :slides-per-view="'auto'">
@@ -62,9 +62,7 @@ const fetchMovies = async () => {
 
     if (response && response.results) {
       if (route.params.id) {
-        movies.value = response.results.filter(
-          (res) => res.poster_path !== null
-        );
+        movies.value = response.results.filter((res) => res.poster_path !== null);
       } else {
         movies.value = response.results;
       }

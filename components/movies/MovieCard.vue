@@ -30,12 +30,10 @@ const props = defineProps({
 });
 const link = computed(() => `/${props.category}/${props.item.id}`);
 
-const bg = computed(() =>
-  apiConfig.w500Img(props.item.poster_path || props.item.backdrop_path)
-);
+const bg = computed(() => apiConfig.w500Img(props.item.poster_path || props.item.backdrop_path));
 </script>
 
-<style scoped>
+<style>
 .movie-card::before {
   content: "";
   @apply absolute inset-0 bg-black opacity-0 rounded-3xl transition-opacity duration-300 ease-in-out;

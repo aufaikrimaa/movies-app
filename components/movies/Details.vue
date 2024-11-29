@@ -1,6 +1,8 @@
 <template>
   <div class="bg-[#0f0f0f]">
-    <div v-if="loading" class="text-white text-center py-20">Loading...</div>
+    <div v-if="loading" class="h-screen flex justify-center bg-[#0f0f0f] text-white">
+      <div class="animate-bounce self-center"><Logo /></div>
+    </div>
     <div v-else-if="error" class="text-red-500 text-center py-20">
       {{ error }}
     </div>
@@ -29,18 +31,13 @@
               <span class="font-bold text-red-500">|</span> {{ movie.tagline }}
             </div> -->
             <div class="flex mb-3">
-              <MoviesMovieStars
-                v-if="movie.vote_average"
-                :vote_average="movie.vote_average"
-              />
+              <MoviesMovieStars v-if="movie.vote_average" :vote_average="movie.vote_average" />
 
               <div class="text-white/50 text-base md:text-md lg:text-lg flex">
                 <span v-if="movie.vote_average" class="hidden sm:block">{{
                   voteAvg(movie.vote_average)
                 }}</span>
-                <span v-if="movie.vote_average" class="mx-2 hidden sm:block"
-                  >·</span
-                >
+                <span v-if="movie.vote_average" class="mx-2 hidden sm:block">·</span>
                 <span v-if="movie.vote_count" class="hidden sm:block"
                   >{{ formatReviews(movie.vote_count) }} Reviews</span
                 >
@@ -93,11 +90,7 @@
         :orilang="movie.original_language"
         v-if="menus === 'images'"
       />
-      <MediaMovieVideos
-        :category="props.category"
-        :id="movieId"
-        v-if="menus === 'videos'"
-      />
+      <MediaMovieVideos :category="props.category" :id="movieId" v-if="menus === 'videos'" />
     </div>
 
     <MoviesMovieSlides
@@ -180,13 +173,9 @@ const fetchCredits = async () => {
     const response = await tmdbApi.credits(props.category, movieId);
 
     if ((response && response.cast) || (response && response.crew)) {
-      cast.value = response.cast
-        .filter((cs) => cs.profile_path !== null)
-        .slice(0, 20);
+      cast.value = response.cast.filter((cs) => cs.profile_path !== null).slice(0, 20);
       crew.value = response.crew;
-      const directors = crew.value.filter((person) =>
-        person.job.includes("Director")
-      );
+      const directors = crew.value.filter((person) => person.job.includes("Director"));
       if (directors.length > 0) {
         directorName.value = directors[0].name;
       } else {

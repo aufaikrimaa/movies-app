@@ -1,6 +1,9 @@
 <template>
   <div class="cursor-grab active:cursor-grabbing">
     <NuxtLoadingIndicator color="#ef4444" :duration="5000" :height="6" />
+    <div v-if="loading" class="h-screen flex justify-center bg-[#0f0f0f] text-white">
+      <div class="animate-bounce self-center"><Logo /></div>
+    </div>
     <client-only>
       <Swiper
         :modules="[SwiperAutoplay, SwiperEffectCreative]"
@@ -54,9 +57,7 @@
                         style="color: white"
                         class="self-center text-md md:text-lg lg:text-xl"
                       />
-                      <div class="self-start text-md md:text-lg lg:text-xl">
-                        Watch Trailer
-                      </div>
+                      <div class="self-start text-md md:text-lg lg:text-xl">Watch Trailer</div>
                     </div>
                   </Button>
                 </VideoModalVideo>
@@ -101,12 +102,12 @@ interface TMDBResponse {
 }
 
 const movies = ref<Movie[]>([]);
-const loading = useLoadingIndicator();
+const loading = ref<boolean>(false);
 
 const error = ref<string | null>(null);
 
 const fetchMovies = async () => {
-  loading.start();
+  loading.value = true;
   try {
     const response = (await tmdbApi.getMoviesList("popular")) as TMDBResponse;
     if (response && response.results) {
@@ -118,7 +119,7 @@ const fetchMovies = async () => {
     error.value = "Error fetching movies.";
     console.error("Error fetching movies:", err);
   } finally {
-    loading.finish();
+    loading.value = false;
   }
 };
 
