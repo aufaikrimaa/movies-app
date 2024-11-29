@@ -1,75 +1,19 @@
-# Nuxt 3 Minimal Starter
+# awaMovies
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Nuxt.js Movies application using [The Movie Database (TMDb)](https://developers.themoviedb.org/3) API. Built using [Vue.js](https://vuejs.org/) and [Nuxt](https://nuxt.com/).
 
-## Setup
+## Quick setup
 
-Make sure to install the dependencies:
+1. Take a copy of `.env.example` and re-name to `.env`
+2. Get your [TMDb](https://developers.themoviedb.org/3) API key
+4. Enter the details into the `.env` file
 
-```bash
-# npm
-npm install
+## Running
 
-# pnpm
-pnpm install
+``` bash
+# install dependencies
+$ npm install # Or yarn install
 
-# yarn
-yarn install
-
-# bun
-bun install
+# serve with hot reload at localhost:3000
+$ npm run dev
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
