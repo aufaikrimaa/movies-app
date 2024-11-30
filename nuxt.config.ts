@@ -6,7 +6,8 @@ export default defineNuxtConfig({
   plugins: ["~/plugins/vue-final-modal"],
   app: {
     head: {
-      title: "Movies App",
+      titleTemplate: "%s - Movies App",
+      title: "Movies App - Watch Movies & TV Shows",
       link: [{ rel: "icon", type: "image/svg+xml", href: "/popcorn.svg" }],
     },
   },
