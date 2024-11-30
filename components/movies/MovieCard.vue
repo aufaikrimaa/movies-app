@@ -4,9 +4,7 @@
       class="movie-card relative bg-cover bg-no-repeat bg-top pt-[160%] rounded-3xl mb-2 transition-all duration-300 hover:shadow-lg"
       :style="{ backgroundImage: `url(${bg})` }"
     >
-      <div
-        class="btn absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 transition-transform duration-300 ease-in-out"
-      >
+      <div class="play-button">
         <Button width="w-16">
           <Icon name="uil:play" style="color: white" class="h-6" />
         </Button>
@@ -33,7 +31,12 @@ const link = computed(() => `/${props.category}/${props.item.id}`);
 const bg = computed(() => apiConfig.w500Img(props.item.poster_path || props.item.backdrop_path));
 </script>
 
-<style>
+<style scoped>
+.movie-card {
+  position: relative;
+  overflow: hidden;
+}
+
 .movie-card::before {
   content: "";
   position: absolute;
@@ -47,11 +50,20 @@ const bg = computed(() => apiConfig.w500Img(props.item.poster_path || props.item
   transition: opacity 300ms ease-in-out;
 }
 
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 300ms ease-in-out;
+  z-index: 1;
+}
+
 .movie-card:hover::before {
   opacity: 0.8;
 }
 
-.movie-card:hover .btn {
-  scale: 1;
+.movie-card:hover .play-button {
+  transform: translate(-50%, -50%) scale(1);
 }
 </style>
