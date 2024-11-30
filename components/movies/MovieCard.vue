@@ -36,14 +36,22 @@ const bg = computed(() => apiConfig.w500Img(props.item.poster_path || props.item
 <style>
 .movie-card::before {
   content: "";
-  @apply absolute inset-0 bg-black opacity-0 rounded-3xl transition-opacity duration-300 ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0;
+  border-radius: 1.5rem;
+  transition: opacity 300ms ease-in-out;
 }
 
 .movie-card:hover::before {
-  @apply opacity-80;
+  opacity: 0.8;
 }
 
 .movie-card:hover .btn {
-  @apply scale-100;
+  scale: 1;
 }
 </style>
