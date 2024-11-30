@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Movies App",
+      link: [{ rel: "icon", type: "image/svg+xml", href: "/popcorn.svg" }],
     },
   },
   runtimeConfig: {
