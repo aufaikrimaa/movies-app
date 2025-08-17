@@ -37,7 +37,18 @@ import tmdbApi from "@/services/tmdbApi";
 
 const props = defineProps({
   category: String,
-  type: String,
+  type: {
+    type: String,
+    default: "popular",
+  },
+  searchPage: {
+    type: Boolean,
+    default: false,
+  },
+  query: {
+    type: String,
+    default: "",
+  },
 });
 
 const movies = ref([]);
@@ -49,9 +60,16 @@ const isLastPage = computed(() => page.value >= totalPages.value);
 
 const fetchMovies = async (loadMore = false) => {
   loading.value = true;
+  error.value = null;
+
   try {
     let response;
-    if (props.category === "movie") {
+    if (props.searchPage) {
+      response = await tmdbApi.search(props.category, {
+        query: props.query,
+        page: page.value,
+      });
+    } else if (props.category === "movie") {
       response = await tmdbApi.getMoviesList(props.type, { page: page.value });
     } else if (props.category === "tv") {
       response = await tmdbApi.getTvList(props.type, { page: page.value });
@@ -64,8 +82,12 @@ const fetchMovies = async (loadMore = false) => {
         movies.value = response.results;
       }
       totalPages.value = response.total_pages;
+
+      if (movies.value.length === 0) {
+        error.value = "No results found.";
+      }
     } else {
-      error.value = "No movies found.";
+      error.value = "An error occurred while fetching data.";
     }
   } catch (err) {
     error.value = "Error fetching movies.";
@@ -83,11 +105,12 @@ const loadMoreMovies = () => {
   }
 };
 
-// Fetch movies when type changes or on initial load
+// Fetch movies when type, query, category changes or on initial load
 watch(
-  () => props.type,
+  () => [props.query, props.category, props.type],
   () => {
-    page.value = 1; // Reset to first page on type change
+    // Reset page ke 1 setiap kali query atau kategori berubah
+    page.value = 1;
     fetchMovies();
   },
   { immediate: true }
