@@ -84,7 +84,7 @@ const fetchMovies = async (loadMore = false) => {
       totalPages.value = response.total_pages;
 
       if (movies.value.length === 0) {
-        error.value = "No results found.";
+        error.value = `No ${props.category}'s found.`;
       }
     } else {
       error.value = "An error occurred while fetching data.";

@@ -16,7 +16,7 @@
           @click="changeCategory('tv')"
           class="text-[0.6rem] sm:text-xs md:text-md lg:text-base"
           :class="{ 'menu-active': category === 'tv' }"
-          >TV Series</ButtonOutline
+          >TV Shows</ButtonOutline
         >
       </div>
     </div>
