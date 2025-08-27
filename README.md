@@ -1,4 +1,5 @@
 # awaMovies
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A Nuxt.js Movies application using [The Movie Database (TMDb)](https://developers.themoviedb.org/3) API. Built using [Vue.js](https://vuejs.org/) and [Nuxt](https://nuxt.com/).
 
@@ -17,3 +18,4 @@ $ npm install # Or yarn install
 # serve with hot reload at localhost:3000
 $ npm run dev
 ```
+
